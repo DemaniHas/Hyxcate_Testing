@@ -3,6 +3,7 @@ package mod.emt.hyxcate.init;
 import mod.emt.hyxcate.Hyxcate;
 import mod.emt.hyxcate.config.HyxcateConfig;
 import mod.emt.hyxcate.item.*;
+import mod.emt.hyxcate.item.consumables.food.HyxcateFoodBase;
 import mod.emt.hyxcate.item.tool.HyxcateToolBeamSword;
 import mod.emt.hyxcate.item.tool.HyxcateToolCelestialWarhammer;
 import mod.emt.hyxcate.item.tool.HyxcateToolMeteorDetector;
@@ -13,6 +14,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
@@ -21,6 +23,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static mod.emt.hyxcate.init.HyxcatePotions.DEEP_FREEZE;
 
 @Mod.EventBusSubscriber(modid = Hyxcate.ID)
 public class HyxcateItems {
@@ -83,6 +87,10 @@ public class HyxcateItems {
     public static Item tektiteBeamSword;
     public static Item cyberCrystalBeamSword;
 
+    //Food
+
+    public static Item moonBreaker;
+
     public static Item.ToolMaterial meteoriteToolMaterial;
     public static ItemArmor.ArmorMaterial meteoriteArmorMaterial;
     public static ItemArmor.ArmorMaterial ancientMeteoriteArmorMaterial;
@@ -111,6 +119,7 @@ public class HyxcateItems {
         kreknoriteShard = initItem(new HyxcateItem(EnumRarity.EPIC), "kreknorite_shard");
         kreknoriteIngot = initItem(new HyxcateItem(EnumRarity.EPIC), "kreknorite_ingot");
         celestialEmblem = initItem(new HyxcateItem(EnumRarity.EPIC), "celestial_emblem");
+        moonBreaker = initItem(new HyxcateFoodBase(2, 4, false, new PotionEffect(DEEP_FREEZE, 200, 0 ,false, false), 1.0f), "moonbreaker_candy");
 
         if (HyxcateConfig.MASTER_SWITCHES.meteorDetectorEnabled) {
             meteorFinder = initItem(new HyxcateToolMeteorDetector(), "meteor_detector");

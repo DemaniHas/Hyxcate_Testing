@@ -158,6 +158,7 @@ item.hyxcate.frezarite_beam_sword.name=Beam Sword Type F
 item.hyxcate.kreknorite_beam_sword.name=Beam Sword Type K
 item.hyxcate.tektite_beam_sword.name=Beam Sword Type T
 item.hyxcate.cyber_crystal_beam_sword.name=Beam Sword Type C
+item.hyxcate.moonbreaker_candy.name=Moonbreaker
 
 # Tooltips
 tooltip.hyxcate.beam_sword=With its distinctive glowing blade, this weapon is eye-catching and lethal. All attacks completely ignore armor and invincibility frames.
@@ -177,6 +178,7 @@ tooltip.hyxcate.shift=Hold SHIFT to see more info...
 tooltip.hyxcate.tektite_bow=Fires powerful arrows very quickly.
 tooltip.hyxcate.tektite_gem_cluster=They are packed with electricity.
 tooltip.hyxcate.tektite_greatsword=All attacks have a wider range.
+tooltip.hyxcate.moonbreaker_candy=A jawbreaker that looks like the moon, and it tastes like... Space dirt...
 
 # Potions
 effect.hyxcate.astral_erosion.name=Astral Erosion

@@ -9,6 +9,7 @@ import mod.emt.hyxcate.compat.datafixes.HyxcateItemDataFixer;
 import mod.emt.hyxcate.compat.datafixes.HyxcateMiscDataFixer;
 import mod.emt.hyxcate.config.HyxcateConfig;
 import mod.emt.hyxcate.config.HyxcateData;
+import mod.emt.hyxcate.init.HyxcatePotions;
 import mod.emt.hyxcate.init.HyxcateRegistry;
 import mod.emt.hyxcate.network.HyxcatePacketHandler;
 import mod.emt.hyxcate.proxy.CommonProxy;
@@ -51,6 +52,7 @@ public class Hyxcate {
         HyxcateRegistry.preInit();
         HyxcatePacketHandler.init();
         HyxcateCompatHandler.preInit();
+        HyxcatePotions.potionInit();
     }
 
     @EventHandler
