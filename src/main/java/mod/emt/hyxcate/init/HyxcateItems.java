@@ -24,8 +24,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-import static mod.emt.hyxcate.init.HyxcatePotions.DEEP_FREEZE;
-
 @Mod.EventBusSubscriber(modid = Hyxcate.ID)
 public class HyxcateItems {
     public static final List<Item> MOD_ITEMS = new ArrayList<>();
@@ -119,7 +117,7 @@ public class HyxcateItems {
         kreknoriteShard = initItem(new HyxcateItem(EnumRarity.EPIC), "kreknorite_shard");
         kreknoriteIngot = initItem(new HyxcateItem(EnumRarity.EPIC), "kreknorite_ingot");
         celestialEmblem = initItem(new HyxcateItem(EnumRarity.EPIC), "celestial_emblem");
-        moonBreaker = initItem(new HyxcateFoodBase(2, 4, false, new PotionEffect(DEEP_FREEZE, 200, 0 ,false, false), 1.0f), "moonbreaker_candy");
+        moonBreaker = initItem(new HyxcateFoodBase(2, 4, false, new PotionEffect(HyxcatePotions.DEEP_FREEZE, 200, 0 ,false, false), 1.0f), "moonbreaker_candy");
 
         if (HyxcateConfig.MASTER_SWITCHES.meteorDetectorEnabled) {
             meteorFinder = initItem(new HyxcateToolMeteorDetector(), "meteor_detector");
