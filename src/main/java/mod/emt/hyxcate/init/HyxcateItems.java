@@ -8,7 +8,6 @@ import mod.emt.hyxcate.item.tool.HyxcateToolBeamSword;
 import mod.emt.hyxcate.item.tool.HyxcateToolCelestialWarhammer;
 import mod.emt.hyxcate.item.tool.HyxcateToolMeteorDetector;
 import mod.emt.hyxcate.item.tool.HyxcateToolTektiteGreatsword;
-import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
@@ -88,11 +87,6 @@ public class HyxcateItems {
 
     //Food
 
-    //public static Item effectlessFood;
-    //public static Item effect1Food;
-    //public static Item effect2Food;
-    //public static Item effect3Food;
-
     public static Item moonBreaker;
 
     public static Item.ToolMaterial meteoriteToolMaterial;
@@ -123,44 +117,7 @@ public class HyxcateItems {
         kreknoriteShard = initItem(new HyxcateItem(EnumRarity.EPIC), "kreknorite_shard");
         kreknoriteIngot = initItem(new HyxcateItem(EnumRarity.EPIC), "kreknorite_ingot");
         celestialEmblem = initItem(new HyxcateItem(EnumRarity.EPIC), "celestial_emblem");
-        moonBreaker = initItem(new HyxcateFoodBase(2, 4, false,
-                new PotionEffect(HyxcatePotions.DEEP_FREEZE, 200, 0 ,false, false), 1.0f), "moonbreaker_candy");
-
-        /**
-         *  Food template for new food integration (with pre applied potion effect), going from no effect up to 3.
-         *
-         * @Param amount : 2 (How much food point the item gives back (2 is a whole "shank")).
-         * @Param saturation : 4 (How much saturation the item gives back (4 is 2 "shanks")).
-         * @Param isWolfFood : true/false (Can the food be given to wolves to heal them).
-         *
-         * @Param PotionEffect : self-explanatory.
-         * @Param duration : 200 (Duration of the effect in ticks (20 = 1 second)).
-         * @Param amplifier : 0 (Power of the effect, 0 is the lowest, unsure what the max amount is).
-         * @Param ambient : true/false (Is the effect given by a beacon (unsure what the use of this parameter is)).
-         * @Param showParticles : true/false (Are the effect's particles visible or not while the effect is active on the player).
-         * @Param effectProbability : 1.0f (Chances of having the effect applied after consuming the food (from 0.0f (0%) to 1.0f (100%))).
-         */
-
-        //effectlessFood = initItem(new HyxcateFoodBase(2, 4, false, new PotionEffect(HyxcatePotions.DEEP_FREEZE, 200, 0 ,false, false), 1.0f), "food_noeffect");
-
-        /*
-        effect1Food = initItem(new HyxcateFoodBase(2, 4, false,
-                new PotionEffect(MobEffects.GLOWING, 200, 0 ,false, false), 1.0f), "food_1effect");
-        */
-
-        /*
-        effect2Food = initItem(new HyxcateFoodBase(2, 4, false,
-                new PotionEffect(HyxcatePotions.PARALYSIS, 200, 0 ,false, false), 1.0f,
-                new PotionEffect(MobEffects.RESISTANCE, 200, 0 ,false, false), 1.0f), "food_2effect");
-        */
-
-        /*
-        effect3Food = initItem(new HyxcateFoodBase(2, 4, false,
-                new PotionEffect(MobEffects.REGENERATION, 200, 0 ,false, false), 1.0f,
-                new PotionEffect(HyxcatePotions.INFERNO, 200, 0 ,false, false), 1.0f,
-                new PotionEffect(HyxcatePotions.ASTRAL_EROSION, 200, 0 ,false, false), 1.0f), "food_3effect");
-        */
-
+        moonBreaker = initItem(new HyxcateFoodBase(2, 4, false, new PotionEffect(HyxcatePotions.DEEP_FREEZE, 200, 0 ,false, false), 1.0f), "moonbreaker_candy");
 
         if (HyxcateConfig.MASTER_SWITCHES.meteorDetectorEnabled) {
             meteorFinder = initItem(new HyxcateToolMeteorDetector(), "meteor_detector");

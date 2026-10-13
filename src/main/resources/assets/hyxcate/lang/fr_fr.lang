@@ -75,21 +75,15 @@ fluid.meteorite.name=Météorite Fondue
 
 # Info
 info.hyxcate.blue_moon=La Lune Bleue se lève...
-info.hyxcate.blue_moon_verbose=Les récoltes poussent plus rapidement et la chance des joueurs augmente, les monstres hostiles n'apparaîtront pas.
 info.hyxcate.star_shower=Des étoiles pleuvent du ciel...
-info.hyxcate.star_shower_verbose=Les étoile filantes apparaissent plus souvent.
 info.hyxcate.full_moon=La Pleine Lune se lève...
-info.hyxcate.full_moon_verbose=Les monstres hostiles apparaissent plus fréquemment et peuvent recevoir des effets de potions. Les loups sauvages deviennent hostiles.
 info.hyxcate.blood_moon=La Lune De Sang se lève...
 info.hyxcate.blood_moon_sleeping=L'idée de dormir vous met mal à l'aise
-info.hyxcate.blood_moon_verbose=Les monstres hostiles apparaissent beaucoup plus fréquemment et il vous est impossible de dormir.
 info.hyxcate.meteor=Un météore s'est écrasé tout près!
 info.hyxcate.meteor_far=Un météore s'est écrasé au loin!
 info.hyxcate.meteor_verbose=Un météore s'est écrasé à
 info.hyxcate.red_giant=Le soleil a grossi en une Géante Rouge!
-info.hyxcate.red_giant_verbose=Les monstres hostiles ont plus de vie et sont immunisés au feu, certains seront remplacés par un équivalent "chaud".
 info.hyxcate.grim_eclipse=Quelque chose cache le soleil! Une Éclipse Sinistre commence...
-info.hyxcate.grim_eclipse_verbose=Les monstres hostiles continueront d'apparaître et ne seront pas brûlés par le soleil, comme si la nuit était prolongée.
 info.hyxcate.meteor_detector.none_found=Aucun site de crash de météore n'a été trouvé!
 info.hyxcate.meteor_detector.distance=Le site de crash de météore le plus proche est à %s blocs de distance.
 info.hyxcate.meteor_detector.confirm=Voulez-vous supprimer le site de crash de météore à %d, %d, %d de la base de données?
@@ -158,7 +152,6 @@ item.hyxcate.frezarite_beam_sword.name=Épée Laser Type F
 item.hyxcate.kreknorite_beam_sword.name=Épée Laser Type K
 item.hyxcate.tektite_beam_sword.name=Épée Laser Type T
 item.hyxcate.cyber_crystal_beam_sword.name=Épée Laser Type C
-item.hyxcate.moonbreaker_candy.name=Moonbreaker
 
 # Tooltips
 tooltip.hyxcate.beam_sword=Avec sa lame lumineuse distincte, cette arme est à la fois spéctaculaire et létale. Toutes les attaques ignorent complètement l'armure et les frames d'invincibilité.
@@ -178,7 +171,6 @@ tooltip.hyxcate.shift=Maintenez SHIFT pour voir plus d'infos...
 tooltip.hyxcate.tektite_bow=Tire de puissantes flèches très rapidement.
 tooltip.hyxcate.tektite_gem_cluster=Elles sont chargées d'électricité.
 tooltip.hyxcate.tektite_greatsword=Toutes les attaques ont une plus grande portée.
-tooltip.hyxcate.moonbreaker_candy=Un jawbreaker resemblant à la lune, et il a le goût de... Poussière spatiale...
 
 # Potions
 effect.hyxcate.astral_erosion.name=Érosion Astrale
@@ -245,7 +237,6 @@ config.hyxcate.entities=Entités
 config.hyxcate.events_lunar=Évènements: Lunaire
 config.hyxcate.events_solar=Évènements: Solaire
 config.hyxcate.meteors=Météores
-config.hyxcate.mod_integration=Intégration Avec Les Autres Mods
 config.hyxcate.falling_stars=Étoiles Filantes
 config.hyxcate.blood_moon=Lune De Sang
 config.hyxcate.blue_moon=Lune Bleue
