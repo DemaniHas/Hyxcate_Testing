@@ -4,6 +4,7 @@ import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
 import mod.emt.hyxcate.config.HyxcateConfig;
 import mod.emt.hyxcate.util.ColorTransitionUtil;
 import mod.emt.hyxcate.util.ColorUtil;
+import mod.emt.hyxcate.util.WorldUtil;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import org.spongepowered.asm.mixin.Mixin;
@@ -85,5 +86,35 @@ public abstract class HyxcateLightmapColorsMixin {
         colors[0] = Math.min(1.0F, colors[0] * customLightmapColors[0]);
         colors[1] = Math.min(1.0F, colors[1] * customLightmapColors[1]);
         colors[2] = Math.min(1.0F, colors[2] * customLightmapColors[2]);
+    }
+
+    @Inject(method = "getLightmapColors", at = @At("RETURN"), remap = false)
+    private void hyxcate$applyMoonPhaseBrightness(float partialTicks, float sunBrightness, float skyLight, float blockLight, float[] colors, CallbackInfo ci) {
+        if (this.world == null || !WorldUtil.isNighttime(this.world) || !HyxcateConfig.GENERAL.dynamicMoonPhaseLightmapBrightness) {
+            return;
+        }
+
+        // TODO: Make these configurable
+        /*
+        * See here for more info about all the different moon phases:
+        * https://minecraft.wiki/w/Moon#Phases
+         */
+        float[] multipliers = {
+                1.0F, // Full moon
+                0.9F, // Waning Gibbous
+                0.8F, // Third Quarter
+                0.7F, // Waning Crescent
+                0.6F, // New Moon
+                0.7F, // Waxing Crescent
+                0.8F, // First Quarter
+                0.9F  // Waxing Gibbous
+        };
+
+        int phase = this.world.getMoonPhase();
+        float multiplier = multipliers[phase];
+
+        colors[0] *= multiplier;
+        colors[1] *= multiplier;
+        colors[2] *= multiplier;
     }
 }

@@ -51,6 +51,11 @@ public class LunarEventStarShower extends HyxcateLunarEvent {
     }
 
     @Override
+    public int getFogColor() {
+        return HyxcateConfig.EVENTS_LUNAR.STAR_SHOWER.fogColor;
+    }
+
+    @Override
     public int getSkyColor() {
         return HyxcateConfig.EVENTS_LUNAR.STAR_SHOWER.skyColor;
     }

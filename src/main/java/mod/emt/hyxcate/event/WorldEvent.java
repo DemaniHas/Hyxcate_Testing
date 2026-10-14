@@ -18,10 +18,10 @@ public class WorldEvent {
         Entity entity = event.getEntity();
         World world = entity.getEntityWorld();
         if (world.isRemote) return;
-        CapabilityCelestialEvent Hyxcate = CapabilityCelestialEvent.get(world);
-        if (Hyxcate == null) return;
+        CapabilityCelestialEvent cap = CapabilityCelestialEvent.get(world);
+        if (cap == null) return;
         if (entity instanceof EntityPlayerMP) {
-            HyxcatePacketWorld packet = new HyxcatePacketWorld(Hyxcate);
+            HyxcatePacketWorld packet = new HyxcatePacketWorld(cap);
             HyxcatePacketHandler.sendTo((EntityPlayerMP) entity, packet);
         }
     }

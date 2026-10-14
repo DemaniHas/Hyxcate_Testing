@@ -24,7 +24,7 @@ public class DamageSourceEvent {
             entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, HyxcateSoundEvents.EFFECT_DEEP_FREEZE_START.getSoundEvent(), SoundCategory.NEUTRAL, 0.5F, 2.0F / (entity.world.rand.nextFloat() * 0.4F + 1.2F));
         }
 
-        if (damageSource == HyxcateDamageSource.INFERNO) {
+        if (damageSource == HyxcateDamageSource.INFERNO || damageSource == HyxcateDamageSource.RED_GIANT) {
             entity.world.playSound(null, entity.posX, entity.posY, entity.posZ, HyxcateSoundEvents.EFFECT_INFERNO_START.getSoundEvent(), SoundCategory.NEUTRAL, 0.5F, 2.0F / (entity.world.rand.nextFloat() * 0.4F + 1.2F));
         }
 

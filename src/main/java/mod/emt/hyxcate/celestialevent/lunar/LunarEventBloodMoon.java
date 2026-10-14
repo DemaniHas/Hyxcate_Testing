@@ -82,6 +82,11 @@ public class LunarEventBloodMoon extends HyxcateLunarEvent {
     }
 
     @Override
+    public int getFogColor() {
+        return HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.fogColor;
+    }
+
+    @Override
     public int getSkyColor() {
         return HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.skyColor;
     }

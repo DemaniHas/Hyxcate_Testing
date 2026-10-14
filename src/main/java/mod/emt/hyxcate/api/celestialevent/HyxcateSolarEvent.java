@@ -33,6 +33,10 @@ public abstract class HyxcateSolarEvent implements INBTSerializable<NBTTagCompou
         return WorldUtil.isNighttime(this.world);
     }
 
+    public int getFogColor() {
+        return 0;
+    }
+
     public int getSkyColor() {
         return 0;
     }

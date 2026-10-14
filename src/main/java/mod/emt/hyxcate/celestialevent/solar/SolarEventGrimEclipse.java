@@ -43,6 +43,11 @@ public class SolarEventGrimEclipse extends HyxcateSolarEvent {
     }
 
     @Override
+    public int getFogColor() {
+        return HyxcateConfig.EVENTS_SOLAR.GRIM_ECLIPSE.fogColor;
+    }
+
+    @Override
     public int getSkyColor() {
         return HyxcateConfig.EVENTS_SOLAR.GRIM_ECLIPSE.skyColor;
     }

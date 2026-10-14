@@ -11,9 +11,13 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public final class VignetteHelper {
-    private static final ResourceLocation VIGNETTE = new ResourceLocation(Hyxcate.ID, "textures/misc/vignette.png");
+    private static final ResourceLocation DEFAULT_VIGNETTE = new ResourceLocation(Hyxcate.ID, "textures/misc/vignette.png");
 
     public static void render(ScaledResolution resolution, float red, float green, float blue, float alpha) {
+        render(DEFAULT_VIGNETTE, resolution, red, green, blue, alpha);
+    }
+
+    public static void render(ResourceLocation texture, ScaledResolution resolution, float red, float green, float blue, float alpha) {
         if (alpha <= 0.0F) {
             return;
         }
@@ -21,7 +25,7 @@ public final class VignetteHelper {
         Minecraft mc = Minecraft.getMinecraft();
         GlStateManager.pushMatrix();
         GlStateManager.pushAttrib();
-        mc.getTextureManager().bindTexture(VIGNETTE);
+        mc.getTextureManager().bindTexture(texture);
         GlStateManager.enableBlend();
         GlStateManager.disableDepth();
         GlStateManager.depthMask(false);

@@ -58,6 +58,7 @@ public class HyxcateEvents {
         MinecraftForge.EVENT_BUS.register(new AnvilRepairEvent());
         MinecraftForge.EVENT_BUS.register(new CraftingEvent());
         MinecraftForge.EVENT_BUS.register(new DamageSourceEvent());
+        MinecraftForge.EVENT_BUS.register(new TimeCommandEvent());
 
         // Attributes
         MinecraftForge.EVENT_BUS.register(new ExplosionResistanceEvent());

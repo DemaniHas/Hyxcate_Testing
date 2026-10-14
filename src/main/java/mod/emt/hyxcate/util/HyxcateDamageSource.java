@@ -13,6 +13,7 @@ public class HyxcateDamageSource extends EntityDamageSource {
     public static final DamageSource INFERNO = new DamageSource("hyxcate_inferno").setDamageBypassesArmor(); // It's fire but we don't want fire immune mobs to completely protect against it lol
     public static final DamageSource LASER = new DamageSource("hyxcate_laser").setDamageBypassesArmor();
     public static final DamageSource PARALYSIS = new DamageSource("hyxcate_paralysis").setDamageBypassesArmor();
+    public static final DamageSource RED_GIANT = new DamageSource("hyxcate_red_giant").setDamageBypassesArmor().setDamageIsAbsolute();
 
     public HyxcateDamageSource(String damageType, @Nullable Entity damageSourceEntity) {
         super(damageType, damageSourceEntity);

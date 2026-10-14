@@ -61,7 +61,7 @@ public abstract class HyxcateCloudColorMixin {
         float progress = 1.0F;
 
         if (transitionStartTime >= 0) {
-            int duration = HyxcateConfig.GENERAL.eventTintSkyColorDuration;
+            int duration = HyxcateConfig.GENERAL.eventTintCloudColorDuration;
             progress = duration == -1 ? 1.0F : Math.max(0.0F, Math.min(1.0F, (world.getTotalWorldTime() + partialTicks - transitionStartTime) / (float) duration));
         }
 

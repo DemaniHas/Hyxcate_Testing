@@ -13,6 +13,9 @@ This is a massive update that overhauls the entire mod. The mod id has been chan
 - Added a new animation for falling meteors
 - Added a new growth animation to the sun when affected by events like Red Giant
 - Added the ability to adjust the sun size for all solar events (API)
+- Added an icon for the Deep Freeze effect
+- Added new vignette screen effects to Hyxcate potion effects
+- Added new vignette screen effect to the Red Giant event
 - Added fr_fr.lang (courtesy of Demani)
 - Added ru_ru.lang (courtesy of GitNell)
 - Added uk_ua.lang (courtesy of GitNell)
@@ -29,7 +32,14 @@ This is a massive update that overhauls the entire mod. The mod id has been chan
 - Updated all meteor type particles, there are different particle colors depending on the variant of meteor
 - Updated Cyber Crystal particles
 - Event color transitions are now faster by default
-- Tweaked Grim Eclipse sky color
+- Tweaked Blood Moon, Blue Moon, Grim Eclipse, and Star Shower sky colors
+- Slightly adjusted Alien Kitty textures to be less noisy
+- Hostile mobs will now burn under the Red Giant again (another upcoming solar event will still protect hostile mobs from burning)
+- Disabled potion particles from Hyxcate potion effects
+- Various parts of the event transition times can now be configured
+- Event fog color can now be configured rather than using the same color as the sky
+- Lightmap brightness is now affected by moon phases
+- Optimized a lot of assets which overall reduces the mod file size (courtesy of Demani)
 ### Fixed
 - Fixed meteor block config lists not accepting metadata
 - Fixed event notifications and event intro sounds not being client-sided
@@ -39,6 +49,8 @@ This is a massive update that overhauls the entire mod. The mod id has been chan
 - Fixed event color transitions sometimes not transitioning properly after the event ends
 - Fixed event colors immediately reverting back when switching dimensions in the middle of an event
 - Fixed night event sky color not actually working at all
+- Fixed odd behaviors when the glow effect is applied by Astral Erosion
+- Fixed Hyxcate potion effects causing a crash when applied by food
 ### Removed
 - Removed beam sword swing and hit sounds, these were relocated to another project
 ---

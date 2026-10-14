@@ -33,9 +33,8 @@ public class KreknoriteToolEvent {
                     // Explosion deals AoE damage
                     for (Entity nearbyLivingEntity : entity.world.getEntitiesWithinAABBExcludingEntity(trueSource, entity.getEntityBoundingBox().grow(1.5D, 1.5D, 1.5D))) {
                         if (nearbyLivingEntity instanceof EntityLivingBase && !nearbyLivingEntity.isOnSameTeam(trueSource) && !nearbyLivingEntity.isEntityEqual(trueSource)) {
-                            if (nearbyLivingEntity instanceof EntityLiving) {
-                                EntityLiving entity2 = (EntityLiving) nearbyLivingEntity;
-                                entity2.addPotionEffect(new PotionEffect(HyxcatePotions.INFERNO, 8 * 20, 0));
+                            if (nearbyLivingEntity instanceof EntityLivingBase) {
+                                ((EntityLivingBase) nearbyLivingEntity).addPotionEffect(new PotionEffect(HyxcatePotions.INFERNO, 8 * 20, 0));
                             }
                             nearbyLivingEntity.attackEntityFrom(DamageSource.causeMobDamage((EntityLivingBase) trueSource), event.getAmount() + 4.0F);
                         }

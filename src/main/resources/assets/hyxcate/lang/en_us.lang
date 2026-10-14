@@ -45,6 +45,7 @@ death.attack.hyxcate_laser=%1$s was vaporized by a laser beam
 death.attack.hyxcate_laser.player=%1$s was vaporized by %2$s's laser beam
 death.attack.hyxcate_paralysis=%1$s couldn't contain the watts
 death.attack.hyxcate_paralysis.player=%1$s was paralyzed to death by %2$s
+death.attack.hyxcate_red_giant=%1$s was completely melted down by the Red Giant
 
 # Enchantments
 enchantment.hyxcate.lunar_edge=Lunar Edge
