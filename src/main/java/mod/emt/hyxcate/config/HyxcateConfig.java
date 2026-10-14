@@ -94,6 +94,15 @@ public class HyxcateConfig {
         @Config.Comment("Not for the more serious lore friendly players")
         public boolean easterEggs = true;
 
+        @Config.Name("Event Sun Brightness Transition Duration")
+        @Config.Comment({
+                "Controls the sun brightness transitions",
+                "Duration specified in ticks. Use -1 to disable"
+        })
+        @Config.RangeInt(min = -1)
+        @Config.RequiresMcRestart
+        public int eventSunBrightnessDuration = 120;
+
         @Config.Name("Event Tint")
         @Config.Comment("If celestial events should tint the sky")
         public boolean eventTint = true;
@@ -102,18 +111,36 @@ public class HyxcateConfig {
         @Config.Comment("If celestial events should also tint underground areas (can look slightly jarring when disabled)")
         public boolean eventTintUnderground = true;
 
-        @Config.Name("Event Tint Lightmap transition duration")
+        @Config.Name("Event Tint Cloud Color transition duration")
         @Config.Comment({
-                "Controls the lightmap colors transitions and the sun brightness transitions",
+                "Controls the cloud color transitions",
+                "Duration specified in ticks. Use -1 to disable"
+        })
+        @Config.RangeInt(min = -1)
+        @Config.RequiresMcRestart
+        public int eventTintCloudColorDuration = 120;
+
+        @Config.Name("Event Tint Fog Color transition duration")
+        @Config.Comment({
+                "Controls the fog color transitions",
+                "Duration specified in ticks. Use -1 to disable"
+        })
+        @Config.RangeInt(min = -1)
+        @Config.RequiresMcRestart
+        public int eventTintFogColorDuration = 120;
+
+        @Config.Name("Event Tint Lightmap Transition Duration")
+        @Config.Comment({
+                "Controls the lightmap color transitions",
                 "Duration specified in ticks. Use -1 to disable"
         })
         @Config.RangeInt(min = -1)
         @Config.RequiresMcRestart
         public int eventTintLightmapDuration = 120;
 
-        @Config.Name("Event Tint Sky Color transition duration")
+        @Config.Name("Event Tint Sky Color Transition Duration")
         @Config.Comment({
-                "Controls the sky, clouds and fog transitions",
+                "Controls the sky color transitions",
                 "Duration specified in ticks. Use -1 to disable"
         })
         @Config.RangeInt(min = -1)

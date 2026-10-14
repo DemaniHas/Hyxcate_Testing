@@ -105,7 +105,7 @@ public class CelestialWorldEvent {
         float progress = 1.0F;
 
         if (transitionStartTime >= 0) {
-            int duration = HyxcateConfig.GENERAL.eventTintSkyColorDuration;
+            int duration = HyxcateConfig.GENERAL.eventTintFogColorDuration;
             progress = duration == -1.0F ? 1.0F : Math.max(0.0F, Math.min(1.0F, (world.getTotalWorldTime() + (float) event.getRenderPartialTicks() - transitionStartTime) / (float) duration));
         }
 

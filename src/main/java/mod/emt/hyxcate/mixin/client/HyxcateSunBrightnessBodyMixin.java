@@ -58,7 +58,7 @@ public abstract class HyxcateSunBrightnessBodyMixin {
             return;
         }
 
-        int duration = HyxcateConfig.GENERAL.eventTintLightmapDuration;
+        int duration = HyxcateConfig.GENERAL.eventSunBrightnessDuration;
         float progress = duration == -1.0F ? 1.0F : Math.max(0.0F, Math.min(1.0F, (getTotalWorldTime() + partialTicks - transitionStartTime) / (float) duration));
         float customBrightness = hyxcate$brightnessTransition.getCurrentColor(progress)[0];
         cir.setReturnValue(cir.getReturnValue() * customBrightness);
