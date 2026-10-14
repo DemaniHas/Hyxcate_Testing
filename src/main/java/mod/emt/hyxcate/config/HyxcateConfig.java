@@ -590,6 +590,22 @@ public class HyxcateConfig {
             @Config.Comment("The hex code of the Red Giant's fog color")
             public int fogColor = 0x420d03;
 
+            @Config.Name("Hardcore Exposure")
+            @Config.Comment("Allows the Red Giant to damage anything exposed to the sky")
+            public boolean hardcoreExposure = false;
+
+            @Config.Name("Hardcore Exposure Chance")
+            @Config.Comment({"The chance per tick for the Red Giant to deal damage", "A number of 20 would be a 1/20 chance per tick"})
+            public int hardcoreExposureChance = 20;
+
+            @Config.Name("Hardcore Exposure Damage")
+            @Config.Comment("The amount of damage dealt by the Red Giant")
+            public double hardcoreExposureDamage = 4.0;
+
+            @Config.Name("Hardcore Exposure Invincibility Frames")
+            @Config.Comment({"The amount of invincibility frames set when getting damaged by the Red Giant", "0 will ignore all invincibility frames and 30 is the default amount"})
+            public int hardcoreExposureInvincibilityFrames = 0;
+
             @Config.Name("Lightmap Color")
             @Config.Comment("The hex code of the Red Giant's lightmap color")
             public int lightmapColor = 0x420d03;
