@@ -258,6 +258,10 @@ public class HyxcateConfig {
             @Config.Comment("The hex code of the Blood Moon's cloud color")
             public int cloudColor = 0x420d03;
 
+            @Config.Name("Fog Color")
+            @Config.Comment("The hex code of the Blood Moon's fog color")
+            public int fogColor = 0x420d03;
+
             @Config.Name("Lightmap Color")
             @Config.Comment("The hex code of the Blood Moon's lightmap color")
             public int lightmapColor = 0x420d03;
@@ -331,6 +335,10 @@ public class HyxcateConfig {
             @Config.Name("Cloud Color")
             @Config.Comment("The hex code of the Blue Moon's cloud color")
             public int cloudColor = 0x3f3fc0;
+
+            @Config.Name("Fog Color")
+            @Config.Comment("The hex code of the Blue Moon's fog color")
+            public int fogColor = 0x3f3fc0;
 
             @Config.Name("Lightmap Color")
             @Config.Comment("The hex code of the Blue Moon's lightmap color")
@@ -431,6 +439,10 @@ public class HyxcateConfig {
             @Config.Comment("The hex code of the Star Shower's cloud color")
             public int cloudColor = 0xdec25f;
 
+            @Config.Name("Fog Color")
+            @Config.Comment("The hex code of the Star Shower's fog color")
+            public int fogColor = 0xdec25f;
+
             @Config.Name("Lightmap Color")
             @Config.Comment("The hex code of the Star Shower's lightmap color")
             public int lightmapColor = 0xdec25f;
@@ -517,6 +529,10 @@ public class HyxcateConfig {
             @Config.Comment("The hex code of the Grim Eclipse's cloud color")
             public int cloudColor = 0x131311;
 
+            @Config.Name("Fog Color")
+            @Config.Comment("The hex code of the Grim Eclipse's fog color")
+            public int fogColor = 0x0F0F09;
+
             @Config.Name("Lightmap Color")
             @Config.Comment("The hex code of the Grim Eclipse's lightmap color")
             public int lightmapColor = 0x131311;
@@ -569,6 +585,10 @@ public class HyxcateConfig {
             @Config.Name("Cloud Color")
             @Config.Comment("The hex code of the Red Giant's cloud color")
             public int cloudColor = 0x420d03;
+
+            @Config.Name("Fog Color")
+            @Config.Comment("The hex code of the Red Giant's fog color")
+            public int fogColor = 0x420d03;
 
             @Config.Name("Lightmap Color")
             @Config.Comment("The hex code of the Red Giant's lightmap color")

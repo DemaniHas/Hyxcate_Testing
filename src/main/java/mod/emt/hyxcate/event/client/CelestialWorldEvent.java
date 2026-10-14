@@ -79,25 +79,25 @@ public class CelestialWorldEvent {
         float[] previousEventColor = null;
         long transitionStartTime = -1;
 
-        if (cap.currentSolarEvent != null && cap.currentSolarEvent.getSkyColor() != 0) {
+        if (cap.currentSolarEvent != null && cap.currentSolarEvent.getFogColor() != 0) {
             active = true;
-            eventColor = ColorUtil.getRgbIntAsFloatArray(cap.currentSolarEvent.getSkyColor());
+            eventColor = ColorUtil.getRgbIntAsFloatArray(cap.currentSolarEvent.getFogColor());
             transitionStartTime = cap.solarTransitionStartTime;
-        } else if (cap.currentLunarEvent != null && cap.currentLunarEvent.getSkyColor() != 0) {
+        } else if (cap.currentLunarEvent != null && cap.currentLunarEvent.getFogColor() != 0) {
             active = true;
-            eventColor = ColorUtil.getRgbIntAsFloatArray(cap.currentLunarEvent.getSkyColor());
+            eventColor = ColorUtil.getRgbIntAsFloatArray(cap.currentLunarEvent.getFogColor());
             transitionStartTime = cap.lunarTransitionStartTime;
         } else if (cap.currentSolarEvent == null && cap.currentLunarEvent == null) {
-            boolean solarStopping = cap.lastSolarEvent != null && cap.lastSolarEvent.getSkyColor() != 0 && cap.solarTransitionStopping && cap.solarTransitionStartTime >= 0;
-            boolean lunarStopping = cap.lastLunarEvent != null && cap.lastLunarEvent.getSkyColor() != 0 && cap.lunarTransitionStopping && cap.lunarTransitionStartTime >= 0;
+            boolean solarStopping = cap.lastSolarEvent != null && cap.lastSolarEvent.getFogColor() != 0 && cap.solarTransitionStopping && cap.solarTransitionStartTime >= 0;
+            boolean lunarStopping = cap.lastLunarEvent != null && cap.lastLunarEvent.getFogColor() != 0 && cap.lunarTransitionStopping && cap.lunarTransitionStartTime >= 0;
 
             if (solarStopping && (!lunarStopping || cap.solarTransitionStartTime >= cap.lunarTransitionStartTime)) {
                 stopping = true;
-                previousEventColor = ColorUtil.getRgbIntAsFloatArray(cap.lastSolarEvent.getSkyColor());
+                previousEventColor = ColorUtil.getRgbIntAsFloatArray(cap.lastSolarEvent.getFogColor());
                 transitionStartTime = cap.solarTransitionStartTime;
             } else if (lunarStopping) {
                 stopping = true;
-                previousEventColor = ColorUtil.getRgbIntAsFloatArray(cap.lastLunarEvent.getSkyColor());
+                previousEventColor = ColorUtil.getRgbIntAsFloatArray(cap.lastLunarEvent.getFogColor());
                 transitionStartTime = cap.lunarTransitionStartTime;
             }
         }

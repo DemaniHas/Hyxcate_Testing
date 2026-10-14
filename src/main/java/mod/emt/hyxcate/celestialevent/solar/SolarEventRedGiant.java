@@ -44,6 +44,11 @@ public class SolarEventRedGiant extends HyxcateSolarEvent {
     }
 
     @Override
+    public int getFogColor() {
+        return HyxcateConfig.EVENTS_SOLAR.RED_GIANT.fogColor;
+    }
+
+    @Override
     public int getSkyColor() {
         return HyxcateConfig.EVENTS_SOLAR.RED_GIANT.skyColor;
     }

@@ -29,6 +29,10 @@ public abstract class HyxcateLunarEvent implements INBTSerializable<NBTTagCompou
 
     public abstract boolean shouldStop(boolean lastDaytime);
 
+    public int getFogColor() {
+        return 0;
+    }
+
     public int getSkyColor() {
         return 0;
     }
