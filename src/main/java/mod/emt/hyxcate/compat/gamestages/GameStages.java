@@ -1,6 +1,6 @@
 package mod.emt.hyxcate.compat.gamestages;
 
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateModIntegrationConfig;
 import net.darkhax.gamestages.GameStageHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -42,6 +42,6 @@ public class GameStages {
     }
 
     private static boolean isLoadedAndEnabled() {
-        return HyxcateConfig.MOD_INTEGRATION.gameStagesIntegration && Loader.isModLoaded("gamestages");
+        return HyxcateModIntegrationConfig.gameStagesIntegration && Loader.isModLoaded("gamestages");
     }
 }

@@ -29,10 +29,6 @@ public class HyxcateConfig {
     @Config.Comment("Settings for meteors")
     public static final Meteors METEORS = new Meteors();
 
-    @Config.LangKey("config.hyxcate.mod_integration")
-    @Config.Comment("Settings for mod integration")
-    public static final ModIntegration MOD_INTEGRATION = new ModIntegration();
-
     public static class MasterSwitches {
         @Config.Name("Events: Lunar")
         @Config.Comment("If lunar events should be enabled")
@@ -377,52 +373,6 @@ public class HyxcateConfig {
         @Config.Name("Meteor Types")
         @Config.Comment({"Types of meteors that are allowed to spawn", "1 = Meteorite", "2 = Frezarite", "3 = Kreknorite", "4 = Unknown"})
         public Integer[] meteorTypes = new Integer[]{1, 2, 3, 4};
-    }
-
-    public static class ModIntegration {
-        @Config.LangKey("config.hyxcate.simple_difficulty")
-        @Config.Comment("SimpleDifficulty settings")
-        public final ModIntegration.SimpleDifficulty SIMPLE_DIFFICULTY = new ModIntegration.SimpleDifficulty();
-
-        @Config.LangKey("config.hyxcate.tan")
-        @Config.Comment("Tough As Nails settings")
-        public final ModIntegration.TAN TAN = new ModIntegration.TAN();
-
-        @Config.Name("Construct's Armory Integration")
-        @Config.Comment({"Enables Construct's Armory integration", "Requires Tinkers' Construct integration to be enabled"})
-        public boolean constructsArmoryIntegration = true;
-
-        @Config.Name("Tinkers' Construct Integration")
-        @Config.Comment("Enables Tinkers' Construct integration")
-        public boolean tinkersConstructIntegration = true;
-
-        @Config.Name("Peaceful Surface Integration")
-        @Config.Comment({"Enables Peaceful Surface integration", "Mobs will spawn on the surface during events when enabled"})
-        public boolean peacefulSurfaceIntegration = true;
-
-        @Config.Name("Game Stages Integration")
-        @Config.Comment({"Enables Game Stages integration", "See wiki for details: https://github.com/Elite-Modding-Team/Hyxcate/wiki/Game-Stages"})
-        public boolean gameStagesIntegration = false;
-
-        public static class SimpleDifficulty {
-            @Config.Name("Enable SimpleDifficulty Integration")
-            @Config.Comment("Enables SimpleDifficulty integration")
-            public boolean enableSimpleDifficulty = true;
-
-            @Config.Name("Red Giant Temperature")
-            @Config.Comment("The temperature level during an active Red Giant event")
-            public int redGiantTemperature = 10;
-        }
-
-        public static class TAN {
-            @Config.Name("Enable Tough As Nails Integration")
-            @Config.Comment("Enables Tough As Nails integration")
-            public boolean enableTAN = true;
-
-            @Config.Name("Red Giant Temperature")
-            @Config.Comment("The temperature level during an active Red Giant event")
-            public int redGiantTemperature = 22;
-        }
     }
 
     @Mod.EventBusSubscriber(modid = Hyxcate.ID)
