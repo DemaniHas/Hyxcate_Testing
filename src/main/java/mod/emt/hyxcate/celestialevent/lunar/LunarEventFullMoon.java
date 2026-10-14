@@ -45,4 +45,24 @@ public class LunarEventFullMoon extends HyxcateLunarEvent {
     public boolean shouldStop(boolean lastDaytime) {
         return WorldUtil.isDaytime(this.world);
     }
+
+    @Override
+    public int getFogColor() {
+        return HyxcateConfig.EVENTS_LUNAR.FULL_MOON.fogColor;
+    }
+
+    @Override
+    public int getSkyColor() {
+        return HyxcateConfig.EVENTS_LUNAR.FULL_MOON.skyColor;
+    }
+
+    @Override
+    public int getCloudColor() {
+        return HyxcateConfig.EVENTS_LUNAR.FULL_MOON.cloudColor;
+    }
+
+    @Override
+    public int getLightmapColor() {
+        return HyxcateConfig.EVENTS_LUNAR.FULL_MOON.lightmapColor;
+    }
 }

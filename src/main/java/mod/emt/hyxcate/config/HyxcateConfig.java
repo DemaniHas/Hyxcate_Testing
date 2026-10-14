@@ -259,19 +259,19 @@ public class HyxcateConfig {
             public int gracePeriod = 8;
 
             @Config.Name("Cloud Color")
-            @Config.Comment("The hex code of the Blood Moon's cloud color")
+            @Config.Comment({"The hex code of the Blood Moon's cloud color", "Set to 0 to completely disable this feature"})
             public int cloudColor = 0x420d03;
 
             @Config.Name("Fog Color")
-            @Config.Comment("The hex code of the Blood Moon's fog color")
+            @Config.Comment({"The hex code of the Blood Moon's fog color", "Set to 0 to completely disable this feature"})
             public int fogColor = 0x420d03;
 
             @Config.Name("Lightmap Color")
-            @Config.Comment("The hex code of the Blood Moon's lightmap color")
+            @Config.Comment({"The hex code of the Blood Moon's lightmap color", "Set to 0 to completely disable this feature"})
             public int lightmapColor = 0x420d03;
 
             @Config.Name("Sky Color")
-            @Config.Comment("The hex code of the Blood Moon's sky color")
+            @Config.Comment({"The hex code of the Blood Moon's sky color", "Set to 0 to completely disable this feature"})
             public int skyColor = 0x110300;
 
             @Config.Name("On Full Moon")
@@ -337,19 +337,19 @@ public class HyxcateConfig {
             public int gracePeriod = 8;
 
             @Config.Name("Cloud Color")
-            @Config.Comment("The hex code of the Blue Moon's cloud color")
+            @Config.Comment({"The hex code of the Blue Moon's cloud color", "Set to 0 to completely disable this feature"})
             public int cloudColor = 0x3f3fc0;
 
             @Config.Name("Fog Color")
-            @Config.Comment("The hex code of the Blue Moon's fog color")
+            @Config.Comment({"The hex code of the Blue Moon's fog color", "Set to 0 to completely disable this feature"})
             public int fogColor = 0x3f3fc0;
 
             @Config.Name("Lightmap Color")
-            @Config.Comment("The hex code of the Blue Moon's lightmap color")
+            @Config.Comment({"The hex code of the Blue Moon's lightmap color", "Set to 0 to completely disable this feature"})
             public int lightmapColor = 0x3f3fc0;
 
             @Config.Name("Sky Color")
-            @Config.Comment("The hex code of the Blue Moon's sky color")
+            @Config.Comment({"The hex code of the Blue Moon's sky color", "Set to 0 to completely disable this feature"})
             public int skyColor = 0x000319;
 
             @Config.Name("On Full Moon")
@@ -394,6 +394,22 @@ public class HyxcateConfig {
             @Config.Name("Add Potion Effects")
             @Config.Comment("If mobs spawned during a full moon should have random potion effects applied to them (similarly to spiders in the base game)")
             public boolean addPotionEffects = true;
+
+            @Config.Name("Cloud Color")
+            @Config.Comment({"The hex code of the Full Moon's cloud color", "Set to 0 to completely disable this feature"})
+            public int cloudColor = 0;
+
+            @Config.Name("Fog Color")
+            @Config.Comment({"The hex code of the Full Moon's fog color", "Set to 0 to completely disable this feature"})
+            public int fogColor = 0;
+
+            @Config.Name("Lightmap Color")
+            @Config.Comment({"The hex code of the Full Moon's lightmap color", "Set to 0 to completely disable this feature"})
+            public int lightmapColor = 0;
+
+            @Config.Name("Sky Color")
+            @Config.Comment({"The hex code of the Full Moon's sky color", "Set to 0 to completely disable this feature"})
+            public int skyColor = 0;
 
             @Config.Name("Exclusive Spawns")
             @Config.Comment({"The registry names of hostile entities that should spawn exclusively on the surface during the event (whitelist)", "Leave empty to allow all hostile entities to spawn"})
@@ -440,19 +456,19 @@ public class HyxcateConfig {
             public int gracePeriod = 15;
 
             @Config.Name("Cloud Color")
-            @Config.Comment("The hex code of the Star Shower's cloud color")
+            @Config.Comment({"The hex code of the Star Shower's cloud color", "Set to 0 to completely disable this feature"})
             public int cloudColor = 0xdec25f;
 
             @Config.Name("Fog Color")
-            @Config.Comment("The hex code of the Star Shower's fog color")
+            @Config.Comment({"The hex code of the Star Shower's fog color", "Set to 0 to completely disable this feature"})
             public int fogColor = 0xdec25f;
 
             @Config.Name("Lightmap Color")
-            @Config.Comment("The hex code of the Star Shower's lightmap color")
+            @Config.Comment({"The hex code of the Star Shower's lightmap color", "Set to 0 to completely disable this feature"})
             public int lightmapColor = 0xdec25f;
 
             @Config.Name("Sky Color")
-            @Config.Comment("The hex code of the Star Shower's sky color")
+            @Config.Comment({"The hex code of the Star Shower's sky color", "Set to 0 to completely disable this feature"})
             public int skyColor = 0x2D2508;
 
             @Config.Name("On Full Moon")
@@ -530,19 +546,19 @@ public class HyxcateConfig {
             public int spawnsExtraChance = 10;
 
             @Config.Name("Cloud Color")
-            @Config.Comment("The hex code of the Grim Eclipse's cloud color")
+            @Config.Comment({"The hex code of the Grim Eclipse's cloud color", "Set to 0 to completely disable this feature"})
             public int cloudColor = 0x131311;
 
             @Config.Name("Fog Color")
-            @Config.Comment("The hex code of the Grim Eclipse's fog color")
+            @Config.Comment({"The hex code of the Grim Eclipse's fog color", "Set to 0 to completely disable this feature"})
             public int fogColor = 0x0F0F09;
 
             @Config.Name("Lightmap Color")
-            @Config.Comment("The hex code of the Grim Eclipse's lightmap color")
+            @Config.Comment({"The hex code of the Grim Eclipse's lightmap color", "Set to 0 to completely disable this feature"})
             public int lightmapColor = 0x131311;
 
             @Config.Name("Sky Color")
-            @Config.Comment("The hex code of the Grim Eclipse's sky color")
+            @Config.Comment({"The hex code of the Grim Eclipse's sky color", "Set to 0 to completely disable this feature"})
             public int skyColor = 0x0F0F09;
 
             @Config.Name("Replacement Spawns")
@@ -587,11 +603,11 @@ public class HyxcateConfig {
             public int spawnsExtraChance = 10;
 
             @Config.Name("Cloud Color")
-            @Config.Comment("The hex code of the Red Giant's cloud color")
+            @Config.Comment({"The hex code of the Red Giant's cloud color", "Set to 0 to completely disable this feature"})
             public int cloudColor = 0x420d03;
 
             @Config.Name("Fog Color")
-            @Config.Comment("The hex code of the Red Giant's fog color")
+            @Config.Comment({"The hex code of the Red Giant's fog color", "Set to 0 to completely disable this feature"})
             public int fogColor = 0x420d03;
 
             @Config.Name("Hardcore Exposure")
@@ -611,11 +627,11 @@ public class HyxcateConfig {
             public int hardcoreExposureInvincibilityFrames = 0;
 
             @Config.Name("Lightmap Color")
-            @Config.Comment("The hex code of the Red Giant's lightmap color")
+            @Config.Comment({"The hex code of the Red Giant's lightmap color", "Set to 0 to completely disable this feature"})
             public int lightmapColor = 0x420d03;
 
             @Config.Name("Sky Color")
-            @Config.Comment("The hex code of the Red Giant's sky color")
+            @Config.Comment({"The hex code of the Red Giant's sky color", "Set to 0 to completely disable this feature"})
             public int skyColor = 0x420d03;
 
             @Config.Name("Replacement Spawns")
