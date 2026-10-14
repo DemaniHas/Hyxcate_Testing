@@ -4,6 +4,7 @@ import mod.emt.hyxcate.Hyxcate;
 import mod.emt.hyxcate.api.celestialevent.HyxcateLunarEvent;
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
 import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateLunarEventsConfig;
 import mod.emt.hyxcate.init.HyxcateSoundEvents;
 import mod.emt.hyxcate.util.WorldUtil;
 import net.minecraft.block.*;
@@ -22,7 +23,7 @@ import java.util.Iterator;
 
 public class LunarEventBlueMoon extends HyxcateLunarEvent {
 
-    private final ConfigImpl config = new ConfigImpl(HyxcateConfig.EVENTS_LUNAR.BLUE_MOON.chance, HyxcateConfig.EVENTS_LUNAR.BLUE_MOON.startNight, HyxcateConfig.EVENTS_LUNAR.BLUE_MOON.gracePeriod, HyxcateConfig.EVENTS_LUNAR.BLUE_MOON.nightInterval);
+    private final ConfigImpl config = new ConfigImpl(HyxcateLunarEventsConfig.BLUE_MOON.chance, HyxcateLunarEventsConfig.BLUE_MOON.startNight, HyxcateLunarEventsConfig.BLUE_MOON.gracePeriod, HyxcateLunarEventsConfig.BLUE_MOON.nightInterval);
 
     public LunarEventBlueMoon(CapabilityCelestialEvent HyxcateWorld) {
         super("blue_moon", HyxcateWorld);
@@ -47,7 +48,7 @@ public class LunarEventBlueMoon extends HyxcateLunarEvent {
 
     @Override
     public boolean shouldStart(boolean lastDaytime) {
-        if (HyxcateConfig.EVENTS_LUNAR.BLUE_MOON.onFullMoon && this.world.getCurrentMoonPhaseFactor() < 1) return false;
+        if (HyxcateLunarEventsConfig.BLUE_MOON.onFullMoon && this.world.getCurrentMoonPhaseFactor() < 1) return false;
         if (!lastDaytime || WorldUtil.isDaytime(this.world)) return false;
         return this.config.canStart(true);
     }
@@ -59,22 +60,22 @@ public class LunarEventBlueMoon extends HyxcateLunarEvent {
 
     @Override
     public int getFogColor() {
-        return HyxcateConfig.EVENTS_LUNAR.BLUE_MOON.fogColor;
+        return HyxcateLunarEventsConfig.BLUE_MOON.fogColor;
     }
 
     @Override
     public int getSkyColor() {
-        return HyxcateConfig.EVENTS_LUNAR.BLUE_MOON.skyColor;
+        return HyxcateLunarEventsConfig.BLUE_MOON.skyColor;
     }
 
     @Override
     public int getCloudColor() {
-        return HyxcateConfig.EVENTS_LUNAR.BLUE_MOON.cloudColor;
+        return HyxcateLunarEventsConfig.BLUE_MOON.cloudColor;
     }
 
     @Override
     public int getLightmapColor() {
-        return HyxcateConfig.EVENTS_LUNAR.BLUE_MOON.lightmapColor;
+        return HyxcateLunarEventsConfig.BLUE_MOON.lightmapColor;
     }
 
     @Override
@@ -86,13 +87,13 @@ public class LunarEventBlueMoon extends HyxcateLunarEvent {
     public void update(boolean lastDaytime) {
         this.config.update(lastDaytime);
 
-        if (this.world.isRemote || this.hyxcateWorld.currentLunarEvent != this || HyxcateConfig.EVENTS_LUNAR.BLUE_MOON.growAmount <= 0)
+        if (this.world.isRemote || this.hyxcateWorld.currentLunarEvent != this || HyxcateLunarEventsConfig.BLUE_MOON.growAmount <= 0)
             return;
-        if (this.world.getTotalWorldTime() % HyxcateConfig.EVENTS_LUNAR.BLUE_MOON.growInterval != 0) return;
+        if (this.world.getTotalWorldTime() % HyxcateLunarEventsConfig.BLUE_MOON.growInterval != 0) return;
         Iterator<Chunk> chunks = this.world.getPersistentChunkIterable(((WorldServer) this.world).getPlayerChunkMap().getChunkIterator());
         while (chunks.hasNext()) {
             Chunk chunk = chunks.next();
-            for (int i = 0; i < HyxcateConfig.EVENTS_LUNAR.BLUE_MOON.growAmount; i++) {
+            for (int i = 0; i < HyxcateLunarEventsConfig.BLUE_MOON.growAmount; i++) {
                 int x = this.world.rand.nextInt(16);
                 int z = this.world.rand.nextInt(16);
                 int y = chunk.getHeightValue(x, z);

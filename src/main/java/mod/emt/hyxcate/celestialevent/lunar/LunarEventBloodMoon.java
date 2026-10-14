@@ -6,6 +6,7 @@ import mod.emt.hyxcate.api.celestialevent.HyxcateLunarEvent;
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
 import mod.emt.hyxcate.config.HyxcateConfig;
 import mod.emt.hyxcate.config.HyxcateData;
+import mod.emt.hyxcate.config.HyxcateLunarEventsConfig;
 import mod.emt.hyxcate.init.HyxcateSoundEvents;
 import mod.emt.hyxcate.util.WorldUtil;
 import net.minecraft.block.state.IBlockState;
@@ -37,7 +38,7 @@ public class LunarEventBloodMoon extends HyxcateLunarEvent {
     private static final int MOB_COUNT_DIV = (int) Math.pow(17.0D, 2.0D);
     private final Set<ChunkPos> eligibleChunksForSpawning = Sets.newHashSet();
 
-    private final ConfigImpl config = new ConfigImpl(HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.chance, HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.startNight, HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.gracePeriod, HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.nightInterval);
+    private final ConfigImpl config = new ConfigImpl(HyxcateLunarEventsConfig.BLOOD_MOON.chance, HyxcateLunarEventsConfig.BLOOD_MOON.startNight, HyxcateLunarEventsConfig.BLOOD_MOON.gracePeriod, HyxcateLunarEventsConfig.BLOOD_MOON.nightInterval);
 
     public LunarEventBloodMoon(CapabilityCelestialEvent HyxcateWorld) {
         super("blood_moon", HyxcateWorld);
@@ -71,7 +72,7 @@ public class LunarEventBloodMoon extends HyxcateLunarEvent {
 
     @Override
     public boolean shouldStart(boolean lastDaytime) {
-        if (HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.onFullMoon && this.world.getCurrentMoonPhaseFactor() < 1) return false;
+        if (HyxcateLunarEventsConfig.BLOOD_MOON.onFullMoon && this.world.getCurrentMoonPhaseFactor() < 1) return false;
         if (!lastDaytime || WorldUtil.isDaytime(this.world)) return false;
         return this.config.canStart(true);
     }
@@ -83,22 +84,22 @@ public class LunarEventBloodMoon extends HyxcateLunarEvent {
 
     @Override
     public int getFogColor() {
-        return HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.fogColor;
+        return HyxcateLunarEventsConfig.BLOOD_MOON.fogColor;
     }
 
     @Override
     public int getSkyColor() {
-        return HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.skyColor;
+        return HyxcateLunarEventsConfig.BLOOD_MOON.skyColor;
     }
 
     @Override
     public int getCloudColor() {
-        return HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.cloudColor;
+        return HyxcateLunarEventsConfig.BLOOD_MOON.cloudColor;
     }
 
     @Override
     public int getLightmapColor() {
-        return HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.lightmapColor;
+        return HyxcateLunarEventsConfig.BLOOD_MOON.lightmapColor;
     }
 
     @Override
@@ -110,7 +111,7 @@ public class LunarEventBloodMoon extends HyxcateLunarEvent {
     public void update(boolean lastDaytime) {
         this.config.update(lastDaytime);
 
-        if (this.hyxcateWorld.currentLunarEvent == this && !this.world.isRemote && HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.spawnMultiplier > 1) {
+        if (this.hyxcateWorld.currentLunarEvent == this && !this.world.isRemote && HyxcateLunarEventsConfig.BLOOD_MOON.spawnMultiplier > 1) {
             WorldServer world = (WorldServer) this.world;
             this.findChunksForSpawning(world, true, false, world.getTotalWorldTime() % 400L == 0L);
         }
@@ -169,7 +170,7 @@ public class LunarEventBloodMoon extends HyxcateLunarEvent {
                 if ((!enumcreaturetype.getPeacefulCreature() || spawnPeacefulMobs) && (enumcreaturetype.getPeacefulCreature() || spawnHostileMobs) && (!enumcreaturetype.getAnimal() || spawnOnSetTickRate)) {
                     int k4 = worldServerIn.countEntities(enumcreaturetype, true);
                     // edit: increase spawn cap
-                    int l4 = enumcreaturetype.getMaxNumberOfCreature() * HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.spawnMultiplier * i / MOB_COUNT_DIV;
+                    int l4 = enumcreaturetype.getMaxNumberOfCreature() * HyxcateLunarEventsConfig.BLOOD_MOON.spawnMultiplier * i / MOB_COUNT_DIV;
 
                     if (k4 <= l4) {
                         java.util.ArrayList<ChunkPos> shuffled = com.google.common.collect.Lists.newArrayList(this.eligibleChunksForSpawning);
@@ -204,7 +205,7 @@ public class LunarEventBloodMoon extends HyxcateLunarEvent {
                                         float f1 = (float) j3 + 0.5F;
 
                                         // edit: use config value for distance
-                                        if (!worldServerIn.isAnyPlayerWithinRangeAt(f, i3, f1, HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.spawnRadius) && blockpos1.distanceSq(f, i3, f1) >= 576.0D) {
+                                        if (!worldServerIn.isAnyPlayerWithinRangeAt(f, i3, f1, HyxcateLunarEventsConfig.BLOOD_MOON.spawnRadius) && blockpos1.distanceSq(f, i3, f1) >= 576.0D) {
                                             if (entry == null) {
                                                 entry = worldServerIn.getSpawnListEntryForTypeAt(enumcreaturetype, mutable);
 

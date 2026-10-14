@@ -2,8 +2,8 @@ package mod.emt.hyxcate.celestialevent.solar.event;
 
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
 import mod.emt.hyxcate.celestialevent.solar.SolarEventRedGiant;
-import mod.emt.hyxcate.config.HyxcateConfig;
 import mod.emt.hyxcate.config.HyxcateData;
+import mod.emt.hyxcate.config.HyxcateSolarEventsConfig;
 import mod.emt.hyxcate.util.HyxcateDamageSource;
 import mod.emt.hyxcate.util.helpers.ConfigHelper;
 import net.minecraft.entity.EntityList;
@@ -42,7 +42,7 @@ public class RedGiantEvent {
         if (Hyxcate == null) return;
 
         if (Hyxcate.currentSolarEvent instanceof SolarEventRedGiant) {
-            if (HyxcateConfig.EVENTS_SOLAR.RED_GIANT.spawnsExtraChance > 0 && entity.world.rand.nextInt(HyxcateConfig.EVENTS_SOLAR.RED_GIANT.spawnsExtraChance) == 0) {
+            if (HyxcateSolarEventsConfig.RED_GIANT.spawnsExtraChance > 0 && entity.world.rand.nextInt(HyxcateSolarEventsConfig.RED_GIANT.spawnsExtraChance) == 0) {
                 ConfigHelper.handleExtraSpawn(entity, "red_giant_spawn", HyxcateData.EXTRA_SPAWNS_RED_GIANT);
             }
             event.setCanceled(ConfigHelper.handleReplacementSpawn(entity, "red_giant_spawn", HyxcateData.REPLACEMENT_SPAWNS_RED_GIANT));
@@ -60,7 +60,7 @@ public class RedGiantEvent {
     public void onLivingUpdate(LivingEvent.LivingUpdateEvent event) {
         EntityLivingBase entity = event.getEntityLiving();
 
-        if (entity.world.isRemote || entity.isDead || !HyxcateConfig.EVENTS_SOLAR.RED_GIANT.hardcoreExposure) {
+        if (entity.world.isRemote || entity.isDead || !HyxcateSolarEventsConfig.RED_GIANT.hardcoreExposure) {
             return;
         }
 
@@ -71,10 +71,10 @@ public class RedGiantEvent {
 
         BlockPos eyePos = new BlockPos(entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ);
         if (entity.world.canSeeSky(eyePos)) {
-            if (entity.getRNG().nextInt(HyxcateConfig.EVENTS_SOLAR.RED_GIANT.hardcoreExposureChance) == 0) {
-                entity.attackEntityFrom(HyxcateDamageSource.RED_GIANT, (float) HyxcateConfig.EVENTS_SOLAR.RED_GIANT.hardcoreExposureDamage);
-                entity.hurtResistantTime = HyxcateConfig.EVENTS_SOLAR.RED_GIANT.hardcoreExposureInvincibilityFrames;
-                entity.hurtTime = HyxcateConfig.EVENTS_SOLAR.RED_GIANT.hardcoreExposureInvincibilityFrames;
+            if (entity.getRNG().nextInt(HyxcateSolarEventsConfig.RED_GIANT.hardcoreExposureChance) == 0) {
+                entity.attackEntityFrom(HyxcateDamageSource.RED_GIANT, (float) HyxcateSolarEventsConfig.RED_GIANT.hardcoreExposureDamage);
+                entity.hurtResistantTime = HyxcateSolarEventsConfig.RED_GIANT.hardcoreExposureInvincibilityFrames;
+                entity.hurtTime = HyxcateSolarEventsConfig.RED_GIANT.hardcoreExposureInvincibilityFrames;
             }
         }
     }

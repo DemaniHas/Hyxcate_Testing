@@ -4,6 +4,7 @@ import mod.emt.hyxcate.Hyxcate;
 import mod.emt.hyxcate.api.celestialevent.HyxcateLunarEvent;
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
 import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateLunarEventsConfig;
 import mod.emt.hyxcate.init.HyxcateSoundEvents;
 import mod.emt.hyxcate.util.WorldUtil;
 import net.minecraft.util.SoundEvent;
@@ -36,7 +37,7 @@ public class LunarEventFullMoon extends HyxcateLunarEvent {
 
     @Override
     public boolean shouldStart(boolean lastDaytime) {
-        if (!HyxcateConfig.EVENTS_LUNAR.FULL_MOON.actAsEvent) return false;
+        if (!HyxcateLunarEventsConfig.FULL_MOON.actAsEvent) return false;
         if (!lastDaytime || WorldUtil.isDaytime(this.world)) return false;
         return this.world.getCurrentMoonPhaseFactor() >= 1;
     }
@@ -48,21 +49,21 @@ public class LunarEventFullMoon extends HyxcateLunarEvent {
 
     @Override
     public int getFogColor() {
-        return HyxcateConfig.EVENTS_LUNAR.FULL_MOON.fogColor;
+        return HyxcateLunarEventsConfig.FULL_MOON.fogColor;
     }
 
     @Override
     public int getSkyColor() {
-        return HyxcateConfig.EVENTS_LUNAR.FULL_MOON.skyColor;
+        return HyxcateLunarEventsConfig.FULL_MOON.skyColor;
     }
 
     @Override
     public int getCloudColor() {
-        return HyxcateConfig.EVENTS_LUNAR.FULL_MOON.cloudColor;
+        return HyxcateLunarEventsConfig.FULL_MOON.cloudColor;
     }
 
     @Override
     public int getLightmapColor() {
-        return HyxcateConfig.EVENTS_LUNAR.FULL_MOON.lightmapColor;
+        return HyxcateLunarEventsConfig.FULL_MOON.lightmapColor;
     }
 }

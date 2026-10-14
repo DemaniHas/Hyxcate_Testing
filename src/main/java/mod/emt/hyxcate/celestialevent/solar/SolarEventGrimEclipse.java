@@ -4,6 +4,7 @@ import mod.emt.hyxcate.Hyxcate;
 import mod.emt.hyxcate.api.celestialevent.HyxcateSolarEvent;
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
 import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateSolarEventsConfig;
 import mod.emt.hyxcate.init.HyxcateSoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.SoundEvent;
@@ -13,7 +14,7 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 
 public class SolarEventGrimEclipse extends HyxcateSolarEvent {
-    private final ConfigImpl config = new ConfigImpl(HyxcateConfig.EVENTS_SOLAR.GRIM_ECLIPSE.chance, HyxcateConfig.EVENTS_SOLAR.GRIM_ECLIPSE.startDay, HyxcateConfig.EVENTS_SOLAR.GRIM_ECLIPSE.gracePeriod, HyxcateConfig.EVENTS_SOLAR.GRIM_ECLIPSE.dayInterval);
+    private final ConfigImpl config = new ConfigImpl(HyxcateSolarEventsConfig.GRIM_ECLIPSE.chance, HyxcateSolarEventsConfig.GRIM_ECLIPSE.startDay, HyxcateSolarEventsConfig.GRIM_ECLIPSE.gracePeriod, HyxcateSolarEventsConfig.GRIM_ECLIPSE.dayInterval);
 
     public SolarEventGrimEclipse(CapabilityCelestialEvent HyxcateWorld) {
         super("grim_eclipse", HyxcateWorld);
@@ -44,22 +45,22 @@ public class SolarEventGrimEclipse extends HyxcateSolarEvent {
 
     @Override
     public int getFogColor() {
-        return HyxcateConfig.EVENTS_SOLAR.GRIM_ECLIPSE.fogColor;
+        return HyxcateSolarEventsConfig.GRIM_ECLIPSE.fogColor;
     }
 
     @Override
     public int getSkyColor() {
-        return HyxcateConfig.EVENTS_SOLAR.GRIM_ECLIPSE.skyColor;
+        return HyxcateSolarEventsConfig.GRIM_ECLIPSE.skyColor;
     }
 
     @Override
     public int getCloudColor() {
-        return HyxcateConfig.EVENTS_SOLAR.GRIM_ECLIPSE.cloudColor;
+        return HyxcateSolarEventsConfig.GRIM_ECLIPSE.cloudColor;
     }
 
     @Override
     public int getLightmapColor() {
-        return HyxcateConfig.EVENTS_SOLAR.GRIM_ECLIPSE.lightmapColor;
+        return HyxcateSolarEventsConfig.GRIM_ECLIPSE.lightmapColor;
     }
 
     @Override

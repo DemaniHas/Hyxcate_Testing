@@ -4,6 +4,7 @@ import mod.emt.hyxcate.Hyxcate;
 import mod.emt.hyxcate.api.celestialevent.HyxcateSolarEvent;
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
 import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateSolarEventsConfig;
 import mod.emt.hyxcate.init.HyxcateSoundEvents;
 import mod.emt.hyxcate.util.RandomUtil;
 import net.minecraft.nbt.NBTTagCompound;
@@ -14,7 +15,7 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 
 public class SolarEventRedGiant extends HyxcateSolarEvent {
-    private final ConfigImpl config = new ConfigImpl(HyxcateConfig.EVENTS_SOLAR.RED_GIANT.chance, HyxcateConfig.EVENTS_SOLAR.RED_GIANT.startDay, HyxcateConfig.EVENTS_SOLAR.RED_GIANT.gracePeriod, HyxcateConfig.EVENTS_SOLAR.RED_GIANT.dayInterval);
+    private final ConfigImpl config = new ConfigImpl(HyxcateSolarEventsConfig.RED_GIANT.chance, HyxcateSolarEventsConfig.RED_GIANT.startDay, HyxcateSolarEventsConfig.RED_GIANT.gracePeriod, HyxcateSolarEventsConfig.RED_GIANT.dayInterval);
 
     public SolarEventRedGiant(CapabilityCelestialEvent HyxcateWorld) {
         super("red_giant", HyxcateWorld);
@@ -45,22 +46,22 @@ public class SolarEventRedGiant extends HyxcateSolarEvent {
 
     @Override
     public int getFogColor() {
-        return HyxcateConfig.EVENTS_SOLAR.RED_GIANT.fogColor;
+        return HyxcateSolarEventsConfig.RED_GIANT.fogColor;
     }
 
     @Override
     public int getSkyColor() {
-        return HyxcateConfig.EVENTS_SOLAR.RED_GIANT.skyColor;
+        return HyxcateSolarEventsConfig.RED_GIANT.skyColor;
     }
 
     @Override
     public int getCloudColor() {
-        return HyxcateConfig.EVENTS_SOLAR.RED_GIANT.cloudColor;
+        return HyxcateSolarEventsConfig.RED_GIANT.cloudColor;
     }
 
     @Override
     public int getLightmapColor() {
-        return HyxcateConfig.EVENTS_SOLAR.RED_GIANT.lightmapColor;
+        return HyxcateSolarEventsConfig.RED_GIANT.lightmapColor;
     }
 
     @Override

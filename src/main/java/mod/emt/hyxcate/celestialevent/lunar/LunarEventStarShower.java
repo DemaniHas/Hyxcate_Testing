@@ -4,6 +4,7 @@ import mod.emt.hyxcate.Hyxcate;
 import mod.emt.hyxcate.api.celestialevent.HyxcateLunarEvent;
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
 import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateLunarEventsConfig;
 import mod.emt.hyxcate.init.HyxcateSoundEvents;
 import mod.emt.hyxcate.util.WorldUtil;
 import net.minecraft.nbt.NBTTagCompound;
@@ -15,7 +16,7 @@ import net.minecraft.util.text.TextFormatting;
 
 public class LunarEventStarShower extends HyxcateLunarEvent {
 
-    private final ConfigImpl config = new ConfigImpl(HyxcateConfig.EVENTS_LUNAR.STAR_SHOWER.chance, HyxcateConfig.EVENTS_LUNAR.STAR_SHOWER.startNight, HyxcateConfig.EVENTS_LUNAR.STAR_SHOWER.gracePeriod, HyxcateConfig.EVENTS_LUNAR.STAR_SHOWER.nightInterval);
+    private final ConfigImpl config = new ConfigImpl(HyxcateLunarEventsConfig.STAR_SHOWER.chance, HyxcateLunarEventsConfig.STAR_SHOWER.startNight, HyxcateLunarEventsConfig.STAR_SHOWER.gracePeriod, HyxcateLunarEventsConfig.STAR_SHOWER.nightInterval);
 
     public LunarEventStarShower(CapabilityCelestialEvent HyxcateWorld) {
         super("star_shower", HyxcateWorld);
@@ -40,7 +41,7 @@ public class LunarEventStarShower extends HyxcateLunarEvent {
 
     @Override
     public boolean shouldStart(boolean lastDaytime) {
-        if (HyxcateConfig.EVENTS_LUNAR.STAR_SHOWER.onFullMoon && this.world.getCurrentMoonPhaseFactor() < 1) return false;
+        if (HyxcateLunarEventsConfig.STAR_SHOWER.onFullMoon && this.world.getCurrentMoonPhaseFactor() < 1) return false;
         if (!lastDaytime || WorldUtil.isDaytime(this.world)) return false;
         return this.config.canStart(true);
     }
@@ -52,22 +53,22 @@ public class LunarEventStarShower extends HyxcateLunarEvent {
 
     @Override
     public int getFogColor() {
-        return HyxcateConfig.EVENTS_LUNAR.STAR_SHOWER.fogColor;
+        return HyxcateLunarEventsConfig.STAR_SHOWER.fogColor;
     }
 
     @Override
     public int getSkyColor() {
-        return HyxcateConfig.EVENTS_LUNAR.STAR_SHOWER.skyColor;
+        return HyxcateLunarEventsConfig.STAR_SHOWER.skyColor;
     }
 
     @Override
     public int getCloudColor() {
-        return HyxcateConfig.EVENTS_LUNAR.STAR_SHOWER.cloudColor;
+        return HyxcateLunarEventsConfig.STAR_SHOWER.cloudColor;
     }
 
     @Override
     public int getLightmapColor() {
-        return HyxcateConfig.EVENTS_LUNAR.STAR_SHOWER.lightmapColor;
+        return HyxcateLunarEventsConfig.STAR_SHOWER.lightmapColor;
     }
 
     @Override
