@@ -38,6 +38,7 @@ This is a massive update that overhauls the entire mod. The mod id has been chan
 - Disabled potion particles from Hyxcate potion effects
 - Various parts of the event transition times can now be configured
 - Event fog color can now be configured rather than using the same color as the sky
+- Lightmap brightness is now affected by moon phases
 - Optimized a lot of assets which overall reduces the mod file size (courtesy of Demani)
 ### Fixed
 - Fixed meteor block config lists not accepting metadata

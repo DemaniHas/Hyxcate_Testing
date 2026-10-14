@@ -90,6 +90,10 @@ public class HyxcateConfig {
                 "Disable if you prefer to launch upwards directly"})
         public boolean celestialWarhammerForwardLaunch = true;
 
+        @Config.Name("Dynamic Moon Phase Lightmap Brightness")
+        @Config.Comment({"Adjusts lightmap brightness depending on the current moon phase", "By default, Full Moon is the brightest and New Moon is the darkest"})
+        public boolean dynamicMoonPhaseLightmapBrightness = true;
+
         @Config.Name("Easter Eggs")
         @Config.Comment("Not for the more serious lore friendly players")
         public boolean easterEggs = true;
