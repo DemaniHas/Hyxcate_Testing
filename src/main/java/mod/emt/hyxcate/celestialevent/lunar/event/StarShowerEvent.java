@@ -40,6 +40,9 @@ public class StarShowerEvent {
                 ConfigHelper.handleExtraSpawn(entity, "star_shower_spawn", HyxcateData.EXTRA_SPAWNS_STAR_SHOWER);
             }
             event.setCanceled(ConfigHelper.handleReplacementSpawn(entity, "star_shower_spawn", HyxcateData.REPLACEMENT_SPAWNS_STAR_SHOWER));
+            if (HyxcateLunarEventsConfig.STAR_SHOWER.mobPotionEffects && HyxcateData.isPotionEffectEntityAllowed(entity, HyxcateLunarEventsConfig.mobPotionEffectsEntityList, HyxcateLunarEventsConfig.mobPotionEffectListMode)) {
+                HyxcateData.applyPotionEffects(entity, HyxcateLunarEventsConfig.STAR_SHOWER.mobPotionEffectsList, HyxcateLunarEventsConfig.STAR_SHOWER.mobPotionEffectsChance);
+            }
         }
     }
 }

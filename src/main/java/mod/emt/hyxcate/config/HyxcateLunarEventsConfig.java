@@ -33,6 +33,23 @@ public class HyxcateLunarEventsConfig {
     @Config.Comment("The numeric IDs of the dimensions that lunar events should occur in")
     public static Integer[] allowedDimensions = new Integer[]{0};
 
+    @Config.Name("Mob Potion Effect Entity List")
+    public static String[] mobPotionEffectsEntityList = new String[] {
+            "minecraft:creeper"
+    };
+
+    @Config.Name("Mob Potion Effect Entity List Mode")
+    @Config.Comment({
+            "Blacklist Mode: Entities in the list will not receive potion effects",
+            "Whitelist Mode: Only entities in the list will receive potion effects"
+    })
+    public static EnumLists mobPotionEffectListMode = EnumLists.BLACKLIST;
+
+    public enum EnumLists {
+        WHITELIST,
+        BLACKLIST
+    }
+
     public static class BloodMoon {
         @Config.Name("Chance")
         @Config.Comment("The chance in percent (1 = 100%) of the Blood Moon occurring")
@@ -65,6 +82,23 @@ public class HyxcateLunarEventsConfig {
         @Config.Name("Lightmap Color")
         @Config.Comment({"The hex code of the Blood Moon's lightmap color", "Set to 0 to completely disable this feature"})
         public int lightmapColor = 0x420d03;
+
+        @Config.Name("Mob Potion Effects")
+        @Config.Comment("If mobs spawned during a Blood Moon should have random potion effects applied to them (similarly to spiders in the base game)")
+        public boolean mobPotionEffects = false;
+
+        @Config.Name("Mob Potion Effect List")
+        @Config.Comment({"The list of potion effects that spawned mobs can have during a Blood Moon", "Using `*` for the duration will cause the effect to be infinite with no timer instead", "Syntax: effect;duration;amplifier"})
+        public String[] mobPotionEffectsList = {
+                "minecraft:invisibility;*;0",
+                "minecraft:regeneration;*;0",
+                "minecraft:speed;*;0",
+                "minecraft:strength;*;0"
+        };
+
+        @Config.Name("Mob Potion Effect Chance")
+        @Config.Comment("The chance for a spawned mob to be applied with a potion effect during the Blood Moon")
+        public double mobPotionEffectsChance = 10.0;
 
         @Config.Name("Sky Color")
         @Config.Comment({"The hex code of the Blood Moon's sky color", "Set to 0 to completely disable this feature"})
@@ -144,6 +178,23 @@ public class HyxcateLunarEventsConfig {
         @Config.Comment({"The hex code of the Blue Moon's lightmap color", "Set to 0 to completely disable this feature"})
         public int lightmapColor = 0x3f3fc0;
 
+        @Config.Name("Mob Potion Effects")
+        @Config.Comment("If mobs spawned during a Blue Moon should have random potion effects applied to them (similarly to spiders in the base game)")
+        public boolean mobPotionEffects = false;
+
+        @Config.Name("Mob Potion Effect List")
+        @Config.Comment({"The list of potion effects that spawned mobs can have during a Blue Moon", "Using `*` for the duration will cause the effect to be infinite with no timer instead", "Syntax: effect;duration;amplifier"})
+        public String[] mobPotionEffectsList = {
+                "minecraft:invisibility;*;0",
+                "minecraft:regeneration;*;0",
+                "minecraft:speed;*;0",
+                "minecraft:strength;*;0"
+        };
+
+        @Config.Name("Mob Potion Effect Chance")
+        @Config.Comment("The chance for a spawned mob to be applied with a potion effect during the Blue Moon")
+        public double mobPotionEffectsChance = 10.0;
+
         @Config.Name("Sky Color")
         @Config.Comment({"The hex code of the Blue Moon's sky color", "Set to 0 to completely disable this feature"})
         public int skyColor = 0x000319;
@@ -184,12 +235,8 @@ public class HyxcateLunarEventsConfig {
 
     public static class FullMoon {
         @Config.Name("Act As Event")
-        @Config.Comment("If the vanilla full moon should be considered a proper lunar event")
+        @Config.Comment("If the vanilla Full Moon should be considered a proper lunar event")
         public boolean actAsEvent = true;
-
-        @Config.Name("Add Potion Effects")
-        @Config.Comment("If mobs spawned during a full moon should have random potion effects applied to them (similarly to spiders in the base game)")
-        public boolean addPotionEffects = true;
 
         @Config.Name("Cloud Color")
         @Config.Comment({"The hex code of the Full Moon's cloud color", "Set to 0 to completely disable this feature"})
@@ -202,6 +249,23 @@ public class HyxcateLunarEventsConfig {
         @Config.Name("Lightmap Color")
         @Config.Comment({"The hex code of the Full Moon's lightmap color", "Set to 0 to completely disable this feature"})
         public int lightmapColor = 0;
+
+        @Config.Name("Mob Potion Effects")
+        @Config.Comment("If mobs spawned during a Full Moon should have random potion effects applied to them (similarly to spiders in the base game)")
+        public boolean mobPotionEffects = true;
+
+        @Config.Name("Mob Potion Effect List")
+        @Config.Comment({"The list of potion effects that spawned mobs can have during a Full Moon", "Using `*` for the duration will cause the effect to be infinite with no timer instead", "Syntax: effect;duration;amplifier"})
+        public String[] mobPotionEffectsList = {
+                "minecraft:invisibility;*;0",
+                "minecraft:regeneration;*;0",
+                "minecraft:speed;*;0",
+                "minecraft:strength;*;0"
+        };
+
+        @Config.Name("Mob Potion Effect Chance")
+        @Config.Comment("The chance for a spawned mob to be applied with a potion effect during the Full Moon")
+        public double mobPotionEffectsChance = 10.0;
 
         @Config.Name("Sky Color")
         @Config.Comment({"The hex code of the Full Moon's sky color", "Set to 0 to completely disable this feature"})
@@ -262,6 +326,23 @@ public class HyxcateLunarEventsConfig {
         @Config.Name("Lightmap Color")
         @Config.Comment({"The hex code of the Star Shower's lightmap color", "Set to 0 to completely disable this feature"})
         public int lightmapColor = 0xdec25f;
+
+        @Config.Name("Mob Potion Effects")
+        @Config.Comment("If mobs spawned during a Star Shower should have random potion effects applied to them (similarly to spiders in the base game)")
+        public boolean mobPotionEffects = false;
+
+        @Config.Name("Mob Potion Effect List")
+        @Config.Comment({"The list of potion effects that spawned mobs can have during a Star Shower", "Using `*` for the duration will cause the effect to be infinite with no timer instead", "Syntax: effect;duration;amplifier"})
+        public String[] mobPotionEffectsList = {
+                "minecraft:invisibility;*;0",
+                "minecraft:regeneration;*;0",
+                "minecraft:speed;*;0",
+                "minecraft:strength;*;0"
+        };
+
+        @Config.Name("Mob Potion Effect Chance")
+        @Config.Comment("The chance for a spawned mob to be applied with a potion effect during the Star Shower")
+        public double mobPotionEffectsChance = 10.0;
 
         @Config.Name("Sky Color")
         @Config.Comment({"The hex code of the Star Shower's sky color", "Set to 0 to completely disable this feature"})
