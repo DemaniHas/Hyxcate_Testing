@@ -2,8 +2,8 @@ package mod.emt.hyxcate.celestialevent.solar.event;
 
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
 import mod.emt.hyxcate.celestialevent.solar.SolarEventGrimEclipse;
-import mod.emt.hyxcate.config.HyxcateConfig;
 import mod.emt.hyxcate.config.HyxcateData;
+import mod.emt.hyxcate.config.HyxcateSolarEventsConfig;
 import mod.emt.hyxcate.util.helpers.ConfigHelper;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
@@ -38,7 +38,7 @@ public class GrimEclipseEvent {
         CapabilityCelestialEvent Hyxcate = CapabilityCelestialEvent.get(entity.world);
         if (Hyxcate == null) return;
         if (Hyxcate.currentSolarEvent instanceof SolarEventGrimEclipse) {
-            if (HyxcateConfig.EVENTS_SOLAR.GRIM_ECLIPSE.spawnsExtraChance > 0 && entity.world.rand.nextInt(HyxcateConfig.EVENTS_SOLAR.GRIM_ECLIPSE.spawnsExtraChance) == 0) {
+            if (HyxcateSolarEventsConfig.GRIM_ECLIPSE.spawnsExtraChance > 0 && entity.world.rand.nextInt(HyxcateSolarEventsConfig.GRIM_ECLIPSE.spawnsExtraChance) == 0) {
                 ConfigHelper.handleExtraSpawn(entity, "grim_eclipse_spawn", HyxcateData.EXTRA_SPAWNS_GRIM_ECLIPSE);
             }
             event.setCanceled(ConfigHelper.handleReplacementSpawn(entity, "grim_eclipse_spawn", HyxcateData.REPLACEMENT_SPAWNS_GRIM_ECLIPSE));

@@ -56,9 +56,9 @@ public class HyxcateData {
 
     public static void initConfigLists() {
         ALLOWED_DIMENSIONS_LUNAR.clear();
-        ALLOWED_DIMENSIONS_LUNAR.addAll(Arrays.asList(HyxcateConfig.EVENTS_LUNAR.allowedDimensions));
+        ALLOWED_DIMENSIONS_LUNAR.addAll(Arrays.asList(HyxcateLunarEventsConfig.allowedDimensions));
         ALLOWED_DIMENSIONS_SOLAR.clear();
-        ALLOWED_DIMENSIONS_SOLAR.addAll(Arrays.asList(HyxcateConfig.EVENTS_SOLAR.allowedDimensions));
+        ALLOWED_DIMENSIONS_SOLAR.addAll(Arrays.asList(HyxcateSolarEventsConfig.allowedDimensions));
 
         ALLOWED_METEOR_SIZES.clear();
         ALLOWED_METEOR_SIZES.addAll(Arrays.asList(HyxcateConfig.METEORS.meteorSizes));
@@ -80,26 +80,26 @@ public class HyxcateData {
         readBlockStatesFromConfigAsList(HyxcateConfig.METEORS.liquidBlocksKreknorite, LIQUID_BLOCKS_KREKNORITE);
         readBlockStatesFromConfigAsList(HyxcateConfig.METEORS.liquidBlocksUnknown, LIQUID_BLOCKS_UNKNOWN);
 
-        readEntitiesFromConfigAsList(HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.spawnsExclusive, EXCLUSIVE_SPAWNS_BLOOD_MOON);
-        readEntitiesFromConfigAsList(HyxcateConfig.EVENTS_LUNAR.BLUE_MOON.spawnsExclusive, EXCLUSIVE_SPAWNS_BLUE_MOON);
-        readEntitiesFromConfigAsList(HyxcateConfig.EVENTS_LUNAR.FULL_MOON.spawnsExclusive, EXCLUSIVE_SPAWNS_FULL_MOON);
-        readEntitiesFromConfigAsList(HyxcateConfig.EVENTS_LUNAR.STAR_SHOWER.spawnsExclusive, EXCLUSIVE_SPAWNS_STAR_SHOWER);
-        readEntitiesFromConfigAsList(HyxcateConfig.EVENTS_SOLAR.GRIM_ECLIPSE.spawnsExclusive, EXCLUSIVE_SPAWNS_GRIM_ECLIPSE);
-        readEntitiesFromConfigAsList(HyxcateConfig.EVENTS_SOLAR.RED_GIANT.spawnsExclusive, EXCLUSIVE_SPAWNS_RED_GIANT);
+        readEntitiesFromConfigAsList(HyxcateLunarEventsConfig.BLOOD_MOON.spawnsExclusive, EXCLUSIVE_SPAWNS_BLOOD_MOON);
+        readEntitiesFromConfigAsList(HyxcateLunarEventsConfig.BLUE_MOON.spawnsExclusive, EXCLUSIVE_SPAWNS_BLUE_MOON);
+        readEntitiesFromConfigAsList(HyxcateLunarEventsConfig.FULL_MOON.spawnsExclusive, EXCLUSIVE_SPAWNS_FULL_MOON);
+        readEntitiesFromConfigAsList(HyxcateLunarEventsConfig.STAR_SHOWER.spawnsExclusive, EXCLUSIVE_SPAWNS_STAR_SHOWER);
+        readEntitiesFromConfigAsList(HyxcateSolarEventsConfig.GRIM_ECLIPSE.spawnsExclusive, EXCLUSIVE_SPAWNS_GRIM_ECLIPSE);
+        readEntitiesFromConfigAsList(HyxcateSolarEventsConfig.RED_GIANT.spawnsExclusive, EXCLUSIVE_SPAWNS_RED_GIANT);
 
-        readEntitiesFromConfigAsMap(HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.spawnsExtra, EXTRA_SPAWNS_BLOOD_MOON);
-        readEntitiesFromConfigAsMap(HyxcateConfig.EVENTS_LUNAR.BLUE_MOON.spawnsExtra, EXTRA_SPAWNS_BLUE_MOON);
-        readEntitiesFromConfigAsMap(HyxcateConfig.EVENTS_LUNAR.FULL_MOON.spawnsExtra, EXTRA_SPAWNS_FULL_MOON);
-        readEntitiesFromConfigAsMap(HyxcateConfig.EVENTS_LUNAR.STAR_SHOWER.spawnsExtra, EXTRA_SPAWNS_STAR_SHOWER);
-        readEntitiesFromConfigAsMap(HyxcateConfig.EVENTS_SOLAR.GRIM_ECLIPSE.spawnsExtra, EXTRA_SPAWNS_GRIM_ECLIPSE);
-        readEntitiesFromConfigAsMap(HyxcateConfig.EVENTS_SOLAR.RED_GIANT.spawnsExtra, EXTRA_SPAWNS_RED_GIANT);
+        readEntitiesFromConfigAsMap(HyxcateLunarEventsConfig.BLOOD_MOON.spawnsExtra, EXTRA_SPAWNS_BLOOD_MOON);
+        readEntitiesFromConfigAsMap(HyxcateLunarEventsConfig.BLUE_MOON.spawnsExtra, EXTRA_SPAWNS_BLUE_MOON);
+        readEntitiesFromConfigAsMap(HyxcateLunarEventsConfig.FULL_MOON.spawnsExtra, EXTRA_SPAWNS_FULL_MOON);
+        readEntitiesFromConfigAsMap(HyxcateLunarEventsConfig.STAR_SHOWER.spawnsExtra, EXTRA_SPAWNS_STAR_SHOWER);
+        readEntitiesFromConfigAsMap(HyxcateSolarEventsConfig.GRIM_ECLIPSE.spawnsExtra, EXTRA_SPAWNS_GRIM_ECLIPSE);
+        readEntitiesFromConfigAsMap(HyxcateSolarEventsConfig.RED_GIANT.spawnsExtra, EXTRA_SPAWNS_RED_GIANT);
 
-        readEntitiesFromConfigAsMap(HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.spawnsReplacement, REPLACEMENT_SPAWNS_BLOOD_MOON);
-        readEntitiesFromConfigAsMap(HyxcateConfig.EVENTS_LUNAR.BLUE_MOON.spawnsReplacement, REPLACEMENT_SPAWNS_BLUE_MOON);
-        readEntitiesFromConfigAsMap(HyxcateConfig.EVENTS_LUNAR.FULL_MOON.spawnsReplacement, REPLACEMENT_SPAWNS_FULL_MOON);
-        readEntitiesFromConfigAsMap(HyxcateConfig.EVENTS_LUNAR.STAR_SHOWER.spawnsReplacement, REPLACEMENT_SPAWNS_STAR_SHOWER);
-        readEntitiesFromConfigAsMap(HyxcateConfig.EVENTS_SOLAR.GRIM_ECLIPSE.spawnsReplacement, REPLACEMENT_SPAWNS_GRIM_ECLIPSE);
-        readEntitiesFromConfigAsMap(HyxcateConfig.EVENTS_SOLAR.RED_GIANT.spawnsReplacement, REPLACEMENT_SPAWNS_RED_GIANT);
+        readEntitiesFromConfigAsMap(HyxcateLunarEventsConfig.BLOOD_MOON.spawnsReplacement, REPLACEMENT_SPAWNS_BLOOD_MOON);
+        readEntitiesFromConfigAsMap(HyxcateLunarEventsConfig.BLUE_MOON.spawnsReplacement, REPLACEMENT_SPAWNS_BLUE_MOON);
+        readEntitiesFromConfigAsMap(HyxcateLunarEventsConfig.FULL_MOON.spawnsReplacement, REPLACEMENT_SPAWNS_FULL_MOON);
+        readEntitiesFromConfigAsMap(HyxcateLunarEventsConfig.STAR_SHOWER.spawnsReplacement, REPLACEMENT_SPAWNS_STAR_SHOWER);
+        readEntitiesFromConfigAsMap(HyxcateSolarEventsConfig.GRIM_ECLIPSE.spawnsReplacement, REPLACEMENT_SPAWNS_GRIM_ECLIPSE);
+        readEntitiesFromConfigAsMap(HyxcateSolarEventsConfig.RED_GIANT.spawnsReplacement, REPLACEMENT_SPAWNS_RED_GIANT);
     }
 
     private static void readBlockStatesFromConfigAsList(String[] array, List<IBlockState> list) {

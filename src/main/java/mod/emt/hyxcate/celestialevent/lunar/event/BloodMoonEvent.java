@@ -3,8 +3,8 @@ package mod.emt.hyxcate.celestialevent.lunar.event;
 import mod.emt.hyxcate.Hyxcate;
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
 import mod.emt.hyxcate.celestialevent.lunar.LunarEventBloodMoon;
-import mod.emt.hyxcate.config.HyxcateConfig;
 import mod.emt.hyxcate.config.HyxcateData;
+import mod.emt.hyxcate.config.HyxcateLunarEventsConfig;
 import mod.emt.hyxcate.util.WorldUtil;
 import mod.emt.hyxcate.util.helpers.ConfigHelper;
 import net.minecraft.block.Block;
@@ -34,7 +34,7 @@ public class BloodMoonEvent {
     public void onLivingTick(LivingEvent.LivingUpdateEvent event) {
         EntityLivingBase entity = event.getEntityLiving();
         // Deletes monsters spawned by the blood moon after the event is over
-        if (HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.mobsVanish && !entity.world.isRemote && WorldUtil.isDaytime(entity.world) && entity.getEntityData().getBoolean(Hyxcate.ID + ":blood_moon_spawn")) {
+        if (HyxcateLunarEventsConfig.BLOOD_MOON.mobsVanish && !entity.world.isRemote && WorldUtil.isDaytime(entity.world) && entity.getEntityData().getBoolean(Hyxcate.ID + ":blood_moon_spawn")) {
             ((WorldServer) entity.world).spawnParticle(EnumParticleTypes.SMOKE_LARGE, entity.posX, entity.posY, entity.posZ, 10, 0.5, 1, 0.5, 0);
             entity.setDead();
         }
@@ -61,7 +61,7 @@ public class BloodMoonEvent {
         CapabilityCelestialEvent Hyxcate = CapabilityCelestialEvent.get(entity.world);
         if (Hyxcate == null) return;
         if (Hyxcate.currentLunarEvent instanceof LunarEventBloodMoon) {
-            if (HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.spawnsExtraChance > 0 && entity.world.rand.nextInt(HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.spawnsExtraChance) == 0) {
+            if (HyxcateLunarEventsConfig.BLOOD_MOON.spawnsExtraChance > 0 && entity.world.rand.nextInt(HyxcateLunarEventsConfig.BLOOD_MOON.spawnsExtraChance) == 0) {
                 ConfigHelper.handleExtraSpawn(entity, "blood_moon_spawn", HyxcateData.EXTRA_SPAWNS_BLOOD_MOON);
             }
             event.setCanceled(ConfigHelper.handleReplacementSpawn(entity, "blood_moon_spawn", HyxcateData.REPLACEMENT_SPAWNS_BLOOD_MOON));
@@ -78,7 +78,7 @@ public class BloodMoonEvent {
         CapabilityCelestialEvent hyxcate = CapabilityCelestialEvent.get(world);
 
         // Prevents sleeping during a blood moon
-        if (hyxcate != null && hyxcate.currentLunarEvent instanceof LunarEventBloodMoon && !HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.sleeping && block instanceof BlockBed) {
+        if (hyxcate != null && hyxcate.currentLunarEvent instanceof LunarEventBloodMoon && !HyxcateLunarEventsConfig.BLOOD_MOON.sleeping && block instanceof BlockBed) {
             player.sendStatusMessage(new TextComponentTranslation("info." + Hyxcate.ID + ".blood_moon_sleeping"), true);
         }
     }
@@ -88,7 +88,7 @@ public class BloodMoonEvent {
         EntityPlayer player = event.getEntityPlayer();
         CapabilityCelestialEvent Hyxcate = CapabilityCelestialEvent.get(player.world);
         if (Hyxcate != null) {
-            if (Hyxcate.currentLunarEvent instanceof LunarEventBloodMoon && !HyxcateConfig.EVENTS_LUNAR.BLOOD_MOON.sleeping) {
+            if (Hyxcate.currentLunarEvent instanceof LunarEventBloodMoon && !HyxcateLunarEventsConfig.BLOOD_MOON.sleeping) {
                 event.setResult(EntityPlayer.SleepResult.OTHER_PROBLEM);
             }
         }

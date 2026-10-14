@@ -2,8 +2,8 @@ package mod.emt.hyxcate.celestialevent.lunar.event;
 
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
 import mod.emt.hyxcate.celestialevent.lunar.LunarEventFullMoon;
-import mod.emt.hyxcate.config.HyxcateConfig;
 import mod.emt.hyxcate.config.HyxcateData;
+import mod.emt.hyxcate.config.HyxcateLunarEventsConfig;
 import mod.emt.hyxcate.util.helpers.ConfigHelper;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
@@ -40,13 +40,13 @@ public class FullMoonEvent {
         CapabilityCelestialEvent Hyxcate = CapabilityCelestialEvent.get(entity.world);
         if (Hyxcate == null) return;
         if (Hyxcate.currentLunarEvent instanceof LunarEventFullMoon) {
-            if (HyxcateConfig.EVENTS_LUNAR.FULL_MOON.spawnsExtraChance > 0 && entity.world.rand.nextInt(HyxcateConfig.EVENTS_LUNAR.FULL_MOON.spawnsExtraChance) == 0) {
+            if (HyxcateLunarEventsConfig.FULL_MOON.spawnsExtraChance > 0 && entity.world.rand.nextInt(HyxcateLunarEventsConfig.FULL_MOON.spawnsExtraChance) == 0) {
                 ConfigHelper.handleExtraSpawn(entity, "full_moon_spawn", HyxcateData.EXTRA_SPAWNS_FULL_MOON);
             }
             event.setCanceled(ConfigHelper.handleReplacementSpawn(entity, "full_moon_spawn", HyxcateData.REPLACEMENT_SPAWNS_FULL_MOON));
 
             // Set random effect
-            if (HyxcateConfig.EVENTS_LUNAR.FULL_MOON.addPotionEffects) {
+            if (HyxcateLunarEventsConfig.FULL_MOON.addPotionEffects) {
                 Potion effect = null;
                 int i = entity.world.rand.nextInt(20);
 

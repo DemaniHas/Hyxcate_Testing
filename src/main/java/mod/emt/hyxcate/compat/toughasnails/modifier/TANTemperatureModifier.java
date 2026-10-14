@@ -1,8 +1,8 @@
 package mod.emt.hyxcate.compat.toughasnails.modifier;
 
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
-import mod.emt.hyxcate.config.HyxcateConfig;
 import mod.emt.hyxcate.celestialevent.solar.SolarEventRedGiant;
+import mod.emt.hyxcate.config.HyxcateModIntegrationConfig;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import toughasnails.api.temperature.IModifierMonitor;
@@ -18,7 +18,7 @@ public class TANTemperatureModifier extends TemperatureModifier {
     public Temperature applyEnvironmentModifiers(World world, BlockPos pos, Temperature initialTemperature, IModifierMonitor monitor) {
         CapabilityCelestialEvent data = CapabilityCelestialEvent.get(world);
         if (data != null && data.currentSolarEvent instanceof SolarEventRedGiant) {
-            int newTemperatureLevel = HyxcateConfig.MOD_INTEGRATION.TAN.redGiantTemperature; // Default Nether: 22
+            int newTemperatureLevel = HyxcateModIntegrationConfig.TAN.redGiantTemperature; // Default Nether: 22
             monitor.addEntry(new IModifierMonitor.Context(this.getId(), "Hyxcate Event", initialTemperature, new Temperature(newTemperatureLevel)));
             return new Temperature(newTemperatureLevel);
         }

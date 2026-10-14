@@ -2,8 +2,8 @@ package mod.emt.hyxcate.celestialevent.lunar.event;
 
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
 import mod.emt.hyxcate.celestialevent.lunar.LunarEventStarShower;
-import mod.emt.hyxcate.config.HyxcateConfig;
 import mod.emt.hyxcate.config.HyxcateData;
+import mod.emt.hyxcate.config.HyxcateLunarEventsConfig;
 import mod.emt.hyxcate.util.helpers.ConfigHelper;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
@@ -36,7 +36,7 @@ public class StarShowerEvent {
         CapabilityCelestialEvent Hyxcate = CapabilityCelestialEvent.get(entity.world);
         if (Hyxcate == null) return;
         if (Hyxcate.currentLunarEvent instanceof LunarEventStarShower) {
-            if (HyxcateConfig.EVENTS_LUNAR.STAR_SHOWER.spawnsExtraChance > 0 && entity.world.rand.nextInt(HyxcateConfig.EVENTS_LUNAR.STAR_SHOWER.spawnsExtraChance) == 0) {
+            if (HyxcateLunarEventsConfig.STAR_SHOWER.spawnsExtraChance > 0 && entity.world.rand.nextInt(HyxcateLunarEventsConfig.STAR_SHOWER.spawnsExtraChance) == 0) {
                 ConfigHelper.handleExtraSpawn(entity, "star_shower_spawn", HyxcateData.EXTRA_SPAWNS_STAR_SHOWER);
             }
             event.setCanceled(ConfigHelper.handleReplacementSpawn(entity, "star_shower_spawn", HyxcateData.REPLACEMENT_SPAWNS_STAR_SHOWER));

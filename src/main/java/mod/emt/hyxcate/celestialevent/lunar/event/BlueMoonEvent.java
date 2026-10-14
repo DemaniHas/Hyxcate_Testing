@@ -2,8 +2,8 @@ package mod.emt.hyxcate.celestialevent.lunar.event;
 
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
 import mod.emt.hyxcate.celestialevent.lunar.LunarEventBlueMoon;
-import mod.emt.hyxcate.config.HyxcateConfig;
 import mod.emt.hyxcate.config.HyxcateData;
+import mod.emt.hyxcate.config.HyxcateLunarEventsConfig;
 import mod.emt.hyxcate.util.helpers.ConfigHelper;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
@@ -52,7 +52,7 @@ public class BlueMoonEvent {
         CapabilityCelestialEvent Hyxcate = CapabilityCelestialEvent.get(entity.world);
         if (Hyxcate == null) return;
         if (Hyxcate.currentLunarEvent instanceof LunarEventBlueMoon) {
-            if (HyxcateConfig.EVENTS_LUNAR.BLUE_MOON.spawnsExtraChance > 0 && entity.world.rand.nextInt(HyxcateConfig.EVENTS_LUNAR.BLUE_MOON.spawnsExtraChance) == 0) {
+            if (HyxcateLunarEventsConfig.BLUE_MOON.spawnsExtraChance > 0 && entity.world.rand.nextInt(HyxcateLunarEventsConfig.BLUE_MOON.spawnsExtraChance) == 0) {
                 ConfigHelper.handleExtraSpawn(entity, "blue_moon_spawn", HyxcateData.EXTRA_SPAWNS_BLUE_MOON);
             }
             event.setCanceled(ConfigHelper.handleReplacementSpawn(entity, "blue_moon_spawn", HyxcateData.REPLACEMENT_SPAWNS_BLUE_MOON));
