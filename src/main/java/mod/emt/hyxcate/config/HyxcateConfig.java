@@ -111,7 +111,7 @@ public class HyxcateConfig {
         @Config.Comment("If celestial events should also tint underground areas (can look slightly jarring when disabled)")
         public boolean eventTintUnderground = true;
 
-        @Config.Name("Event Tint Cloud Color transition duration")
+        @Config.Name("Event Tint Cloud Color Transition Duration")
         @Config.Comment({
                 "Controls the cloud color transitions",
                 "Duration specified in ticks. Use -1 to disable"
@@ -120,7 +120,7 @@ public class HyxcateConfig {
         @Config.RequiresMcRestart
         public int eventTintCloudColorDuration = 120;
 
-        @Config.Name("Event Tint Fog Color transition duration")
+        @Config.Name("Event Tint Fog Color Transition Duration")
         @Config.Comment({
                 "Controls the fog color transitions",
                 "Duration specified in ticks. Use -1 to disable"
@@ -268,7 +268,7 @@ public class HyxcateConfig {
 
             @Config.Name("Sky Color")
             @Config.Comment("The hex code of the Blood Moon's sky color")
-            public int skyColor = 0x420d03;
+            public int skyColor = 0x110300;
 
             @Config.Name("On Full Moon")
             @Config.Comment("If the Blood Moon should only occur on full moon nights")
@@ -346,7 +346,7 @@ public class HyxcateConfig {
 
             @Config.Name("Sky Color")
             @Config.Comment("The hex code of the Blue Moon's sky color")
-            public int skyColor = 0x3f3fc0;
+            public int skyColor = 0x000319;
 
             @Config.Name("On Full Moon")
             @Config.Comment("If the Blue Moon should only occur on full moon nights")
@@ -449,7 +449,7 @@ public class HyxcateConfig {
 
             @Config.Name("Sky Color")
             @Config.Comment("The hex code of the Star Shower's sky color")
-            public int skyColor = 0xdec25f;
+            public int skyColor = 0x2D2508;
 
             @Config.Name("On Full Moon")
             @Config.Comment("If the Star Shower should only occur on full moon nights")
