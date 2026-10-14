@@ -3,7 +3,7 @@ package mod.emt.hyxcate.celestialevent.solar;
 import mod.emt.hyxcate.Hyxcate;
 import mod.emt.hyxcate.api.celestialevent.HyxcateSolarEvent;
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import mod.emt.hyxcate.config.HyxcateSolarEventsConfig;
 import mod.emt.hyxcate.init.HyxcateSoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
@@ -24,7 +24,7 @@ public class SolarEventGrimEclipse extends HyxcateSolarEvent {
     public ITextComponent getStartMessage() {
         String key = "info." + Hyxcate.ID + "." + this.name;
         ITextComponent text = new TextComponentTranslation(key).setStyle(new Style().setColor(TextFormatting.DARK_GRAY).setItalic(true));
-        if (HyxcateConfig.GENERAL.eventNotificationsVerbose) {
+        if (HyxcateGeneralConfig.GENERAL.eventNotificationsVerbose) {
             key += "_verbose";
             text.appendText("\n");
             text.appendSibling(new TextComponentTranslation(key));

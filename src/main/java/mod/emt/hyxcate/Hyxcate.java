@@ -7,7 +7,7 @@ import mod.emt.hyxcate.compat.datafixes.HyxcateBlockDataFixer;
 import mod.emt.hyxcate.compat.datafixes.HyxcateEntityDataFixer;
 import mod.emt.hyxcate.compat.datafixes.HyxcateItemDataFixer;
 import mod.emt.hyxcate.compat.datafixes.HyxcateMiscDataFixer;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import mod.emt.hyxcate.config.HyxcateData;
 import mod.emt.hyxcate.init.HyxcatePotions;
 import mod.emt.hyxcate.init.HyxcateRegistry;
@@ -78,6 +78,6 @@ public class Hyxcate {
     @EventHandler
     public void serverStarting(FMLServerStartingEvent event) {
         event.registerServerCommand(new HyxcateCommandForce());
-        if (HyxcateConfig.MASTER_SWITCHES.meteorEventsEnabled) event.registerServerCommand(new HyxcateCommandMeteor());
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.meteorEventsEnabled) event.registerServerCommand(new HyxcateCommandMeteor());
     }
 }

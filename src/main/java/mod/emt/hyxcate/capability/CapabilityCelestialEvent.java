@@ -5,8 +5,9 @@ import mod.emt.hyxcate.api.celestialevent.HyxcateLunarEvent;
 import mod.emt.hyxcate.api.celestialevent.HyxcateSolarEvent;
 import mod.emt.hyxcate.compat.astralsorcery.AstralSorcery;
 import mod.emt.hyxcate.compat.gamestages.GameStages;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import mod.emt.hyxcate.config.HyxcateData;
+import mod.emt.hyxcate.config.HyxcateMeteorsConfig;
 import mod.emt.hyxcate.init.HyxcateRegistry;
 import mod.emt.hyxcate.network.HyxcatePacketEventStart;
 import mod.emt.hyxcate.network.HyxcatePacketHandler;
@@ -71,10 +72,10 @@ public class CapabilityCelestialEvent implements ICapabilityProvider, INBTSerial
     }
 
     public void update() {
-        if (HyxcateConfig.MASTER_SWITCHES.meteorEventsEnabled) updateMeteors();
-        if (HyxcateConfig.MASTER_SWITCHES.lunarEventsEnabled && GameStages.checkGameStageLunarEvents(this.world))
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.meteorEventsEnabled) updateMeteors();
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.lunarEventsEnabled && GameStages.checkGameStageLunarEvents(this.world))
             updateLunarEvents();
-        if (HyxcateConfig.MASTER_SWITCHES.solarEventsEnabled && GameStages.checkGameStageSolarEvents(this.world))
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.solarEventsEnabled && GameStages.checkGameStageSolarEvents(this.world))
             updateSolarEvents();
     }
 
@@ -91,8 +92,8 @@ public class CapabilityCelestialEvent implements ICapabilityProvider, INBTSerial
             if (this.world.getTotalWorldTime() % interval == 0) {
                 Set<ChunkPos> remaining = new HashSet<>(this.playersPresentTicks.keySet());
                 for (EntityPlayer player : this.world.playerEntities) {
-                    for (int x = -HyxcateConfig.METEORS.disallowRadius; x <= HyxcateConfig.METEORS.disallowRadius; x++) {
-                        for (int z = -HyxcateConfig.METEORS.disallowRadius; z <= HyxcateConfig.METEORS.disallowRadius; z++) {
+                    for (int x = -HyxcateMeteorsConfig.disallowRadius; x <= HyxcateMeteorsConfig.disallowRadius; x++) {
+                        for (int z = -HyxcateMeteorsConfig.disallowRadius; z <= HyxcateMeteorsConfig.disallowRadius; z++) {
                             ChunkPos pos = new ChunkPos(MathHelper.floor(player.posX / 16) + x, MathHelper.floor(player.posZ / 16) + z);
                             MutableInt time = this.playersPresentTicks.computeIfAbsent(pos, p -> new MutableInt());
                             time.add(interval);

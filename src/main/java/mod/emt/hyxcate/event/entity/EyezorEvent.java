@@ -1,10 +1,8 @@
 package mod.emt.hyxcate.event.entity;
 
 import mod.emt.hyxcate.entity.EntityEyezor;
-import mod.emt.hyxcate.init.HyxcateItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.ZombieEvent;

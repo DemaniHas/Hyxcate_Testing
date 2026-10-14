@@ -1,6 +1,6 @@
 package mod.emt.hyxcate.init;
 
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import mod.emt.hyxcate.event.*;
 import mod.emt.hyxcate.event.attribute.*;
 import mod.emt.hyxcate.event.client.*;
@@ -21,15 +21,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class HyxcateEvents {
     public static void registerEvents() {
-        if (HyxcateConfig.MASTER_SWITCHES.beamSwordsEnabled) {
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.beamSwordsEnabled) {
             MinecraftForge.EVENT_BUS.register(new BeamSwordEvent());
         }
 
-        if (HyxcateConfig.MASTER_SWITCHES.celestialWarhammerEnabled) {
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.celestialWarhammerEnabled) {
             MinecraftForge.EVENT_BUS.register(new CelestialWarhammerEvent());
         }
 
-        if (HyxcateConfig.MASTER_SWITCHES.enchantmentsEnabled) {
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.enchantmentsEnabled) {
             MinecraftForge.EVENT_BUS.register(new LunarEdgeEvent());
             MinecraftForge.EVENT_BUS.register(new LunarShieldEvent());
             MinecraftForge.EVENT_BUS.register(new MagnetiferousEvent());
@@ -37,19 +37,19 @@ public class HyxcateEvents {
             MinecraftForge.EVENT_BUS.register(new SolarShieldEvent());
         }
 
-        if (HyxcateConfig.MASTER_SWITCHES.fallingStarEventsEnabled) {
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.fallingStarEventsEnabled) {
             MinecraftForge.EVENT_BUS.register(new FallingStarEvent());
         }
 
-        if (HyxcateConfig.MASTER_SWITCHES.lunarEventsEnabled) {
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.lunarEventsEnabled) {
             MinecraftForge.EVENT_BUS.register(new WolfEvent());
         }
 
-        if (HyxcateConfig.MASTER_SWITCHES.meteorEventsEnabled) {
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.meteorEventsEnabled) {
             MinecraftForge.EVENT_BUS.register(new FallingMeteorEvent());
         }
 
-        if (HyxcateConfig.MASTER_SWITCHES.meteorGearEnabled) {
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.meteorGearEnabled) {
             MinecraftForge.EVENT_BUS.register(new ArmorEvent());
             MinecraftForge.EVENT_BUS.register(new FrezariteToolEvent());
             MinecraftForge.EVENT_BUS.register(new KreknoriteToolEvent());
@@ -82,7 +82,7 @@ public class HyxcateEvents {
 
     @SideOnly(Side.CLIENT)
     public static void registerClientEvents() {
-        if (HyxcateConfig.GENERAL.f3Info) {
+        if (HyxcateGeneralConfig.GENERAL.f3Info) {
             MinecraftForge.EVENT_BUS.register(new F3InfoEvent());
         }
 

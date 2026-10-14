@@ -1,7 +1,7 @@
 package mod.emt.hyxcate.init;
 
 import mod.emt.hyxcate.Hyxcate;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import mod.emt.hyxcate.enchantment.*;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraftforge.event.RegistryEvent;
@@ -18,7 +18,7 @@ public class HyxcateEnchantments {
 
     @SubscribeEvent
     public static void onEnchantmentRegistry(RegistryEvent.Register<Enchantment> event) {
-        if (HyxcateConfig.MASTER_SWITCHES.enchantmentsEnabled) {
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.enchantmentsEnabled) {
             event.getRegistry().registerAll(
                     lunarEdge = new EnchantmentLunarEdge(),
                     lunarShield = new EnchantmentLunarShield(),

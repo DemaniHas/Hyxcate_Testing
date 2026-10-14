@@ -1,6 +1,6 @@
 package mod.emt.hyxcate.compat.jei;
 
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import mod.emt.hyxcate.init.HyxcateBlocks;
 import mod.emt.hyxcate.init.HyxcateItems;
 import mezz.jei.api.IModPlugin;
@@ -21,7 +21,7 @@ public class JEI implements IModPlugin {
         addJEIInfo(registry, new ItemStack(HyxcateItems.fallenStar));
 
         // JEI Info - Meteors
-        if (HyxcateConfig.MASTER_SWITCHES.meteorGearEnabled) {
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.meteorGearEnabled) {
             addJEIInfo(registry, new ItemStack(HyxcateItems.frezariteBoots));
         }
 

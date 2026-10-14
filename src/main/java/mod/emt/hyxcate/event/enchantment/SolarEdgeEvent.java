@@ -1,7 +1,7 @@
 package mod.emt.hyxcate.event.enchantment;
 
 import com.expandedevents.api.event.ItemAttributeModifierEvent;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import mod.emt.hyxcate.init.HyxcateAttributes;
 import mod.emt.hyxcate.init.HyxcateEnchantments;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -21,7 +21,7 @@ public class SolarEdgeEvent {
         ItemStack stack = event.getItemStack();
 
         solarEdgeLevel = EnchantmentHelper.getEnchantmentLevel(HyxcateEnchantments.solarEdge, stack);
-        double solarEdgeBonus = HyxcateConfig.GENERAL.solarEdgeDamageBase + (HyxcateConfig.GENERAL.solarEdgeDamageSubsequent * solarEdgeLevel);
+        double solarEdgeBonus = HyxcateGeneralConfig.GENERAL.solarEdgeDamageBase + (HyxcateGeneralConfig.GENERAL.solarEdgeDamageSubsequent * solarEdgeLevel);
 
         if (solarEdgeLevel > 0 && event.getSlotType() == EntityEquipmentSlot.MAINHAND) {
             Collection<AttributeModifier> modifiers = event.getOriginalModifiers().get(HyxcateAttributes.SOLAR_DAMAGE.getName());

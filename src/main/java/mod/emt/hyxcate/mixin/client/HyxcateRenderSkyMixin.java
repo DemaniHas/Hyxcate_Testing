@@ -1,7 +1,7 @@
 package mod.emt.hyxcate.mixin.client;
 
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.RenderGlobal;
@@ -34,7 +34,7 @@ public abstract class HyxcateRenderSkyMixin {
             return NORMAL_SUN_SIZE;
         }
 
-        if (!HyxcateConfig.GENERAL.eventSunGrowthAnimation) {
+        if (!HyxcateGeneralConfig.GENERAL.eventSunGrowthAnimation) {
             return cap.currentSolarEvent != null ? cap.currentSolarEvent.getSunSize() : NORMAL_SUN_SIZE;
         }
 

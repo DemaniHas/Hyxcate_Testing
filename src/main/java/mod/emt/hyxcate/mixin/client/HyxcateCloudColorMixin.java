@@ -1,7 +1,7 @@
 package mod.emt.hyxcate.mixin.client;
 
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import mod.emt.hyxcate.util.ColorUtil;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class HyxcateCloudColorMixin {
     @Inject(method = "getCloudColour", at = @At("RETURN"), cancellable = true, remap = false)
     private void HyxcateSetCloudColor(float partialTicks, CallbackInfoReturnable<Vec3d> cir) {
-        if (!HyxcateConfig.GENERAL.eventTint) {
+        if (!HyxcateGeneralConfig.GENERAL.eventTint) {
             return;
         }
 
@@ -61,7 +61,7 @@ public abstract class HyxcateCloudColorMixin {
         float progress = 1.0F;
 
         if (transitionStartTime >= 0) {
-            int duration = HyxcateConfig.GENERAL.eventTintCloudColorDuration;
+            int duration = HyxcateGeneralConfig.GENERAL.eventTintCloudColorDuration;
             progress = duration == -1 ? 1.0F : Math.max(0.0F, Math.min(1.0F, (world.getTotalWorldTime() + partialTicks - transitionStartTime) / (float) duration));
         }
 

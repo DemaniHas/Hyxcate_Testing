@@ -1,6 +1,6 @@
 package mod.emt.hyxcate.entity;
 
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateFallingStarsConfig;
 import mod.emt.hyxcate.init.HyxcateItems;
 import mod.emt.hyxcate.init.HyxcateSoundEvents;
 import mod.emt.hyxcate.util.ColorUtil;
@@ -39,7 +39,7 @@ public class EntityFallingStar extends Entity {
 
         if (!this.world.isRemote) {
             if (this.collided) {
-                this.world.playSound(null, this.posX, this.posY, this.posZ, HyxcateSoundEvents.ENTITY_STAR_IMPACT.getSoundEvent(), SoundCategory.AMBIENT, (float) HyxcateConfig.FALLING_STARS.volumeImpact, 1);
+                this.world.playSound(null, this.posX, this.posY, this.posZ, HyxcateSoundEvents.ENTITY_STAR_IMPACT.getSoundEvent(), SoundCategory.AMBIENT, (float) HyxcateFallingStarsConfig.volumeImpact, 1);
 
                 EntityItem item = new EntityItem(this.world, this.posX, this.posY, this.posZ, new ItemStack(HyxcateItems.fallenStar));
                 this.world.spawnEntity(item);

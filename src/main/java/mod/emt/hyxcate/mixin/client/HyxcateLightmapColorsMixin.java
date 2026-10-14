@@ -1,7 +1,7 @@
 package mod.emt.hyxcate.mixin.client;
 
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import mod.emt.hyxcate.util.ColorTransitionUtil;
 import mod.emt.hyxcate.util.ColorUtil;
 import mod.emt.hyxcate.util.WorldUtil;
@@ -27,7 +27,7 @@ public abstract class HyxcateLightmapColorsMixin {
 
     @Inject(method = "getLightmapColors", at = @At("HEAD"), remap = false)
     private void HyxcateSetLightmapColors(float partialTicks, float sunBrightness, float skyLight, float blockLight, float[] colors, CallbackInfo ci) {
-        if (!HyxcateConfig.GENERAL.eventTint || (!HyxcateConfig.GENERAL.eventTintUnderground && skyLight == 0)) {
+        if (!HyxcateGeneralConfig.GENERAL.eventTint || (!HyxcateGeneralConfig.GENERAL.eventTintUnderground && skyLight == 0)) {
             return;
         }
 
@@ -80,7 +80,7 @@ public abstract class HyxcateLightmapColorsMixin {
             return;
         }
 
-        int duration = HyxcateConfig.GENERAL.eventTintLightmapDuration;
+        int duration = HyxcateGeneralConfig.GENERAL.eventTintLightmapDuration;
         float progress = duration == -1.0F ? 1.0F : Math.max(0.0F, Math.min(1.0F, (this.world.getTotalWorldTime() + partialTicks - transitionStartTime) / (float) duration));
         float[] customLightmapColors = hyxcate$colorTransition.getCurrentColor(progress);
         colors[0] = Math.min(1.0F, colors[0] * customLightmapColors[0]);
@@ -90,7 +90,7 @@ public abstract class HyxcateLightmapColorsMixin {
 
     @Inject(method = "getLightmapColors", at = @At("RETURN"), remap = false)
     private void hyxcate$applyMoonPhaseBrightness(float partialTicks, float sunBrightness, float skyLight, float blockLight, float[] colors, CallbackInfo ci) {
-        if (this.world == null || !WorldUtil.isNighttime(this.world) || !HyxcateConfig.GENERAL.dynamicMoonPhaseLightmapBrightness) {
+        if (this.world == null || !WorldUtil.isNighttime(this.world) || !HyxcateGeneralConfig.GENERAL.dynamicMoonPhaseLightmapBrightness) {
             return;
         }
 

@@ -1,7 +1,7 @@
 package mod.emt.hyxcate.mixin.client;
 
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import mod.emt.hyxcate.celestialevent.solar.SolarEventGrimEclipse;
 import mod.emt.hyxcate.util.ColorTransitionUtil;
 import net.minecraft.world.World;
@@ -58,7 +58,7 @@ public abstract class HyxcateSunBrightnessBodyMixin {
             return;
         }
 
-        int duration = HyxcateConfig.GENERAL.eventSunBrightnessDuration;
+        int duration = HyxcateGeneralConfig.GENERAL.eventSunBrightnessDuration;
         float progress = duration == -1.0F ? 1.0F : Math.max(0.0F, Math.min(1.0F, (getTotalWorldTime() + partialTicks - transitionStartTime) / (float) duration));
         float customBrightness = hyxcate$brightnessTransition.getCurrentColor(progress)[0];
         cir.setReturnValue(cir.getReturnValue() * customBrightness);

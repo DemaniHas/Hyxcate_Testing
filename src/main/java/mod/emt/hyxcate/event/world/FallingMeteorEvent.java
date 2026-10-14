@@ -2,7 +2,7 @@ package mod.emt.hyxcate.event.world;
 
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
 import mod.emt.hyxcate.compat.gamestages.GameStages;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateMeteorsConfig;
 import mod.emt.hyxcate.entity.EntityFallingMeteor;
 import mod.emt.hyxcate.util.helpers.ConfigHelper;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,17 +29,17 @@ public class FallingMeteorEvent {
 
         // Meteors
         meteors:
-        if (!event.world.isRemote && event.world.getTotalWorldTime() >= HyxcateConfig.METEORS.gracePeriod * 24000L && event.world.getTotalWorldTime() % 1200 == 0) {
+        if (!event.world.isRemote && event.world.getTotalWorldTime() >= HyxcateMeteorsConfig.gracePeriod * 24000L && event.world.getTotalWorldTime() % 1200 == 0) {
             if (event.world.playerEntities.isEmpty()) break meteors;
             EntityPlayer selectedPlayer = event.world.playerEntities.get(event.world.rand.nextInt(event.world.playerEntities.size()));
             if (selectedPlayer == null || !GameStages.checkGameStageMeteorEvents(selectedPlayer)) break meteors;
-            double spawnX = selectedPlayer.posX + MathHelper.nextDouble(event.world.rand, -HyxcateConfig.METEORS.spawnRadius, HyxcateConfig.METEORS.spawnRadius);
-            double spawnZ = selectedPlayer.posZ + MathHelper.nextDouble(event.world.rand, -HyxcateConfig.METEORS.spawnRadius, HyxcateConfig.METEORS.spawnRadius);
+            double spawnX = selectedPlayer.posX + MathHelper.nextDouble(event.world.rand, -HyxcateMeteorsConfig.spawnRadius, HyxcateMeteorsConfig.spawnRadius);
+            double spawnZ = selectedPlayer.posZ + MathHelper.nextDouble(event.world.rand, -HyxcateMeteorsConfig.spawnRadius, HyxcateMeteorsConfig.spawnRadius);
             BlockPos spawnPos = new BlockPos(spawnX, 0, spawnZ);
             double chance = ConfigHelper.getMeteorChance(event.world, data);
             MutableInt ticksInArea = data.playersPresentTicks.get(new ChunkPos(spawnPos));
-            if (ticksInArea != null && ticksInArea.intValue() >= HyxcateConfig.METEORS.disallowTime)
-                chance /= Math.pow(2, ticksInArea.intValue() / (double) HyxcateConfig.METEORS.disallowTime);
+            if (ticksInArea != null && ticksInArea.intValue() >= HyxcateMeteorsConfig.disallowTime)
+                chance /= Math.pow(2, ticksInArea.intValue() / (double) HyxcateMeteorsConfig.disallowTime);
             if (chance <= 0 || event.world.rand.nextFloat() > chance) break meteors;
             if (!event.world.isBlockLoaded(spawnPos, false)) {
                 // Add meteor information to cache

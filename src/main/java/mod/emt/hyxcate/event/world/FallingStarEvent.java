@@ -3,8 +3,8 @@ package mod.emt.hyxcate.event.world;
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
 import mod.emt.hyxcate.celestialevent.lunar.LunarEventStarShower;
 import mod.emt.hyxcate.compat.gamestages.GameStages;
-import mod.emt.hyxcate.config.HyxcateConfig;
 import mod.emt.hyxcate.config.HyxcateData;
+import mod.emt.hyxcate.config.HyxcateFallingStarsConfig;
 import mod.emt.hyxcate.entity.EntityFallingStar;
 import mod.emt.hyxcate.util.WorldUtil;
 import net.minecraft.entity.player.EntityPlayer;
@@ -27,7 +27,7 @@ public class FallingStarEvent {
             if (HyxcateData.ALLOWED_DIMENSIONS_LUNAR.contains(dimension)) {
                 for (EntityPlayer player : event.world.playerEntities) {
                     if (!GameStages.checkGameStageFallingStarEvents(player)) continue;
-                    if (event.world.rand.nextFloat() > (data.currentLunarEvent instanceof LunarEventStarShower ? HyxcateConfig.FALLING_STARS.chanceShowerM : HyxcateConfig.FALLING_STARS.chanceM))
+                    if (event.world.rand.nextFloat() > (data.currentLunarEvent instanceof LunarEventStarShower ? HyxcateFallingStarsConfig.chanceShowerM : HyxcateFallingStarsConfig.chanceM))
                         continue;
                     BlockPos startPos = player.getPosition().add(event.world.rand.nextGaussian() * 20, 0, event.world.rand.nextGaussian() * 20);
                     startPos = event.world.getPrecipitationHeight(startPos).up(MathHelper.getInt(event.world.rand, 32, 64));
