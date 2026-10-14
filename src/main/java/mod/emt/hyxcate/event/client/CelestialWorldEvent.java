@@ -2,7 +2,7 @@ package mod.emt.hyxcate.event.client;
 
 import mod.emt.hyxcate.Hyxcate;
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import mod.emt.hyxcate.util.ColorUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderGlobal;
@@ -53,7 +53,7 @@ public class CelestialWorldEvent {
 
     @SubscribeEvent
     public void onFogRender(EntityViewRenderEvent.FogColors event) {
-        if (!HyxcateConfig.GENERAL.eventTint) {
+        if (!HyxcateGeneralConfig.GENERAL.eventTint) {
             return;
         }
 
@@ -105,7 +105,7 @@ public class CelestialWorldEvent {
         float progress = 1.0F;
 
         if (transitionStartTime >= 0) {
-            int duration = HyxcateConfig.GENERAL.eventTintFogColorDuration;
+            int duration = HyxcateGeneralConfig.GENERAL.eventTintFogColorDuration;
             progress = duration == -1.0F ? 1.0F : Math.max(0.0F, Math.min(1.0F, (world.getTotalWorldTime() + (float) event.getRenderPartialTicks() - transitionStartTime) / (float) duration));
         }
 

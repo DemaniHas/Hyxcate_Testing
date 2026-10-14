@@ -1,7 +1,7 @@
 package mod.emt.hyxcate.mixin.client;
 
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import mod.emt.hyxcate.util.ColorUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Vec3d;
@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class HyxcateSkyColorMixin {
     @Inject(method = "getSkyColor", at = @At("RETURN"), cancellable = true)
     private void HyxcateSetSkyColor(Entity entityIn, float partialTicks, CallbackInfoReturnable<Vec3d> cir) {
-        if (!HyxcateConfig.GENERAL.eventTint) {
+        if (!HyxcateGeneralConfig.GENERAL.eventTint) {
             return;
         }
 
@@ -63,7 +63,7 @@ public abstract class HyxcateSkyColorMixin {
         float progress = 1.0F;
 
         if (transitionStartTime >= 0) {
-            int duration = HyxcateConfig.GENERAL.eventTintSkyColorDuration;
+            int duration = HyxcateGeneralConfig.GENERAL.eventTintSkyColorDuration;
             progress = duration == -1 ? 1.0F : Math.max(0.0F, Math.min(1.0F, (world.getTotalWorldTime() + partialTicks - transitionStartTime) / (float) duration));
         }
 

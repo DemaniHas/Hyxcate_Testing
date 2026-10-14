@@ -1,7 +1,7 @@
 package mod.emt.hyxcate.event.enchantment;
 
 import com.expandedevents.api.event.ItemAttributeModifierEvent;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import mod.emt.hyxcate.init.HyxcateAttributes;
 import mod.emt.hyxcate.init.HyxcateEnchantments;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -21,7 +21,7 @@ public class LunarEdgeEvent {
         ItemStack stack = event.getItemStack();
 
         lunarEdgeLevel = EnchantmentHelper.getEnchantmentLevel(HyxcateEnchantments.lunarEdge, stack);
-        double lunarEdgeBonus = HyxcateConfig.GENERAL.lunarEdgeDamageBase + (HyxcateConfig.GENERAL.lunarEdgeDamageSubsequent * lunarEdgeLevel);
+        double lunarEdgeBonus = HyxcateGeneralConfig.GENERAL.lunarEdgeDamageBase + (HyxcateGeneralConfig.GENERAL.lunarEdgeDamageSubsequent * lunarEdgeLevel);
 
         if (lunarEdgeLevel > 0 && event.getSlotType() == EntityEquipmentSlot.MAINHAND) {
             Collection<AttributeModifier> modifiers = event.getOriginalModifiers().get(HyxcateAttributes.LUNAR_DAMAGE.getName());

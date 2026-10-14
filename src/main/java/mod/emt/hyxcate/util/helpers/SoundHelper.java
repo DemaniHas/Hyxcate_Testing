@@ -4,7 +4,7 @@ import mod.emt.hyxcate.client.sound.HyxcateSoundBeamSword;
 import mod.emt.hyxcate.client.sound.HyxcateSoundCelestialWarhammer;
 import mod.emt.hyxcate.client.sound.HyxcateSoundFallenEntity;
 import mod.emt.hyxcate.client.sound.HyxcateSoundFallingEntity;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateFallingStarsConfig;
 import mod.emt.hyxcate.init.HyxcateSoundEvents;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
@@ -32,7 +32,7 @@ public class SoundHelper {
 
     @SideOnly(Side.CLIENT)
     public static void playClientSoundFallingStar(Entity entity) {
-        Minecraft.getMinecraft().getSoundHandler().playSound(new HyxcateSoundFallingEntity(entity, HyxcateSoundEvents.ENTITY_STAR_FALLING.getSoundEvent(), (float) HyxcateConfig.FALLING_STARS.volumeAmbient));
+        Minecraft.getMinecraft().getSoundHandler().playSound(new HyxcateSoundFallingEntity(entity, HyxcateSoundEvents.ENTITY_STAR_FALLING.getSoundEvent(), (float) HyxcateFallingStarsConfig.volumeAmbient));
     }
 
     @SideOnly(Side.CLIENT)

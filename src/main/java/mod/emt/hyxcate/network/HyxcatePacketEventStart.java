@@ -4,7 +4,7 @@ import io.netty.buffer.ByteBuf;
 import mod.emt.hyxcate.api.celestialevent.HyxcateLunarEvent;
 import mod.emt.hyxcate.api.celestialevent.HyxcateSolarEvent;
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.ISound;
 import net.minecraft.client.audio.PositionedSoundRecord;
@@ -62,10 +62,10 @@ public class HyxcatePacketEventStart implements IMessage {
                         sound = event.getStartSound();
                     }
                 }
-                if (text != null && HyxcateConfig.GENERAL.eventNotifications) {
+                if (text != null && HyxcateGeneralConfig.GENERAL.eventNotifications) {
                     player.sendMessage(text);
                 }
-                if (sound != null && HyxcateConfig.GENERAL.eventIntroSounds) {
+                if (sound != null && HyxcateGeneralConfig.GENERAL.eventIntroSounds) {
                     Minecraft.getMinecraft().getSoundHandler().playSound(new PositionedSoundRecord(sound.getSoundName(), SoundCategory.AMBIENT, 10.0F, 1.0F, false, 0, ISound.AttenuationType.NONE, (float) player.posX, (float) player.posY + 32, (float) player.posZ));
                 }
             });

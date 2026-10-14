@@ -1,7 +1,7 @@
 package mod.emt.hyxcate.entity;
 
 import mod.emt.hyxcate.Hyxcate;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import mod.emt.hyxcate.init.HyxcateLootTables;
 import mod.emt.hyxcate.init.HyxcateSoundEvents;
 import mod.emt.hyxcate.util.RandomUtil;
@@ -64,7 +64,7 @@ public class EntityCometKitty extends EntityOcelot {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return (HyxcateConfig.GENERAL.easterEggs && this.isTamed() && RandomUtil.setChance(0.01D)) ? HyxcateSoundEvents.ENTITY_COMET_KITTY_IDLE_SPECIAL.getSoundEvent() : HyxcateSoundEvents.ENTITY_COMET_KITTY_IDLE.getSoundEvent();
+        return (HyxcateGeneralConfig.GENERAL.easterEggs && this.isTamed() && RandomUtil.setChance(0.01D)) ? HyxcateSoundEvents.ENTITY_COMET_KITTY_IDLE_SPECIAL.getSoundEvent() : HyxcateSoundEvents.ENTITY_COMET_KITTY_IDLE.getSoundEvent();
     }
 
     @Override

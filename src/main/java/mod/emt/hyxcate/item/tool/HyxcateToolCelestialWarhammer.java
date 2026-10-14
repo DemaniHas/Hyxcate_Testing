@@ -1,7 +1,7 @@
 package mod.emt.hyxcate.item.tool;
 
 import mod.emt.hyxcate.Hyxcate;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import mod.emt.hyxcate.init.HyxcatePotions;
 import mod.emt.hyxcate.init.HyxcateSoundEvents;
 import mod.emt.hyxcate.item.HyxcateItemSword;
@@ -104,7 +104,7 @@ public class HyxcateToolCelestialWarhammer extends HyxcateItemSword {
         float modifier = MathHelper.clamp((useTime - 20.0F) / 5.0F, 1.0F, 2.5F);
 
         entityLiving.motionY += 1.250D * modifier;
-        if (HyxcateConfig.GENERAL.celestialWarhammerForwardLaunch) {
+        if (HyxcateGeneralConfig.GENERAL.celestialWarhammerForwardLaunch) {
             entityLiving.motionX += -modifier * MathHelper.sin(entityLiving.rotationYaw * 0.017453292F);
             entityLiving.motionZ += modifier * MathHelper.cos(entityLiving.rotationYaw * 0.017453292F);
         }

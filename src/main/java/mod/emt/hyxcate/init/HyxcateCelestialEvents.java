@@ -14,12 +14,12 @@ import mod.emt.hyxcate.celestialevent.solar.SolarEventGrimEclipse;
 import mod.emt.hyxcate.celestialevent.solar.SolarEventRedGiant;
 import mod.emt.hyxcate.celestialevent.solar.event.GrimEclipseEvent;
 import mod.emt.hyxcate.celestialevent.solar.event.RedGiantEvent;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import net.minecraftforge.common.MinecraftForge;
 
 public class HyxcateCelestialEvents {
     public static void registerCelestialEvents() {
-        if (HyxcateConfig.MASTER_SWITCHES.lunarEventsEnabled) {
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.lunarEventsEnabled) {
             HyxcateCelestialEventRegistry.registerLunar(Hyxcate.ID + ":blue_moon", LunarEventBlueMoon::new);
             HyxcateCelestialEventRegistry.registerLunar(Hyxcate.ID + ":star_shower", LunarEventStarShower::new);
             HyxcateCelestialEventRegistry.registerLunar(Hyxcate.ID + ":blood_moon", LunarEventBloodMoon::new);
@@ -32,7 +32,7 @@ public class HyxcateCelestialEvents {
             MinecraftForge.EVENT_BUS.register(new StarShowerEvent());
         }
 
-        if (HyxcateConfig.MASTER_SWITCHES.solarEventsEnabled) {
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.solarEventsEnabled) {
             HyxcateCelestialEventRegistry.registerSolar(Hyxcate.ID + ":red_giant", SolarEventRedGiant::new);
             HyxcateCelestialEventRegistry.registerSolar(Hyxcate.ID + ":grim_eclipse", SolarEventGrimEclipse::new);
 

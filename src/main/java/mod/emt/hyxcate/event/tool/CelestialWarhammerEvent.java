@@ -1,7 +1,7 @@
 package mod.emt.hyxcate.event.tool;
 
 import mod.emt.hyxcate.Hyxcate;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import mod.emt.hyxcate.init.HyxcatePotions;
 import mod.emt.hyxcate.init.HyxcateSoundEvents;
 import mod.emt.hyxcate.util.ColorUtil;
@@ -33,7 +33,7 @@ public class CelestialWarhammerEvent {
                     int radius = 6;
                     AxisAlignedBB area = new AxisAlignedBB(player.posX - radius, player.posY - radius, player.posZ - radius, player.posX + radius, player.posY + radius, player.posZ + radius);
                     DamageSource source = DamageSource.causePlayerDamage(player);
-                    float damage = HyxcateConfig.GENERAL.celestialWarhammerAbilityDamage * Math.min((leapTime - 5) / 35F, 1);
+                    float damage = HyxcateGeneralConfig.GENERAL.celestialWarhammerAbilityDamage * Math.min((leapTime - 5) / 35F, 1);
 
                     for (EntityLivingBase entity : player.world.getEntitiesWithinAABB(EntityLivingBase.class, area, EntitySelectors.IS_ALIVE)) {
                         if (entity != player && !entity.isOnSameTeam(player)) {

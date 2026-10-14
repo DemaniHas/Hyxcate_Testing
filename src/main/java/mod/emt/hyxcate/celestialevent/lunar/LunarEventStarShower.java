@@ -3,7 +3,7 @@ package mod.emt.hyxcate.celestialevent.lunar;
 import mod.emt.hyxcate.Hyxcate;
 import mod.emt.hyxcate.api.celestialevent.HyxcateLunarEvent;
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import mod.emt.hyxcate.config.HyxcateLunarEventsConfig;
 import mod.emt.hyxcate.init.HyxcateSoundEvents;
 import mod.emt.hyxcate.util.WorldUtil;
@@ -26,7 +26,7 @@ public class LunarEventStarShower extends HyxcateLunarEvent {
     public ITextComponent getStartMessage() {
         String key = "info." + Hyxcate.ID + "." + this.name;
         ITextComponent text = new TextComponentTranslation(key).setStyle(new Style().setColor(TextFormatting.GOLD).setItalic(true));
-        if (HyxcateConfig.GENERAL.eventNotificationsVerbose) {
+        if (HyxcateGeneralConfig.GENERAL.eventNotificationsVerbose) {
             key += "_verbose";
             text.appendText("\n");
             text.appendSibling(new TextComponentTranslation(key));

@@ -7,8 +7,12 @@ import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Config(modid = Hyxcate.ID, name = Hyxcate.NAME)
-public class HyxcateConfig {
+@Config.LangKey("cfg." + Hyxcate.ID + ".entities")
+@Config(
+        modid = Hyxcate.ID,
+        name = Hyxcate.ID + "/" + Hyxcate.NAME + " - General"
+)
+public class HyxcateGeneralConfig {
     @Config.LangKey("config.hyxcate.master_switches")
     @Config.Comment("Master switches for entire modules")
     public static final MasterSwitches MASTER_SWITCHES = new MasterSwitches();
@@ -16,14 +20,6 @@ public class HyxcateConfig {
     @Config.LangKey("config.hyxcate.general")
     @Config.Comment("Settings for general mechanics")
     public static final General GENERAL = new General();
-
-    @Config.LangKey("config.hyxcate.entities")
-    @Config.Comment("Settings for entities")
-    public static final Entities ENTITIES = new Entities();
-
-    @Config.LangKey("config.hyxcate.falling_stars")
-    @Config.Comment("Settings for falling stars")
-    public static final FallingStars FALLING_STARS = new FallingStars();
 
     public static class MasterSwitches {
         @Config.Name("Events: Lunar")
@@ -186,38 +182,6 @@ public class HyxcateConfig {
         @Config.Name("Solar Shield Ward: Subsequent")
         @Config.Comment("The amount of Solar Ward received (per level of Solar Shield) after the base ward")
         public double solarShieldWardSubsequent = 0.01D;
-    }
-
-    public static class Entities {
-        @Config.LangKey("config.hyxcate.eyezor")
-        @Config.Comment("Eyezor settings")
-        public final Eyezor EYEZOR = new Eyezor();
-
-        public static class Eyezor {
-            @Config.Name("Laser Color")
-            @Config.Comment("The hex code of the Eyezor's laser color")
-            public int laserColor = 0x6231FD;
-        }
-    }
-
-    public static class FallingStars {
-        @Config.Name("Chance")
-        @Config.Comment("The chance in percent (1 = 100%) for a falling star to appear at night for each player per minute")
-        @Config.RangeDouble(min = 0.0, max = 1.0)
-        public double chanceM = 0.3;
-
-        @Config.Name("Chance During Showers")
-        @Config.Comment("The chance for a falling star to appear during a star shower for each player per minute")
-        @Config.RangeDouble(min = 0.0, max = 1.0)
-        public double chanceShowerM = 1.0;
-
-        @Config.Name("Ambient Volume")
-        @Config.Comment("The volume for the falling star ambient sound")
-        public double volumeAmbient = 8.0;
-
-        @Config.Name("Impact Volume")
-        @Config.Comment("The volume for the falling star impact sound")
-        public double volumeImpact = 8.0;
     }
 
     @Mod.EventBusSubscriber(modid = Hyxcate.ID)

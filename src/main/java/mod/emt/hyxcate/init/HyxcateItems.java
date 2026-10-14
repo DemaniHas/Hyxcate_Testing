@@ -1,7 +1,7 @@
 package mod.emt.hyxcate.init;
 
 import mod.emt.hyxcate.Hyxcate;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import mod.emt.hyxcate.item.*;
 import mod.emt.hyxcate.item.consumables.food.HyxcateFoodBase;
 import mod.emt.hyxcate.item.tool.HyxcateToolBeamSword;
@@ -119,11 +119,11 @@ public class HyxcateItems {
         celestialEmblem = initItem(new HyxcateItem(EnumRarity.EPIC), "celestial_emblem");
         moonBreaker = initItem(new HyxcateFoodBase(2, 4, false, new PotionEffect(HyxcatePotions.DEEP_FREEZE, 200, 0 ,false, false), 1.0f), "moonbreaker_candy");
 
-        if (HyxcateConfig.MASTER_SWITCHES.meteorDetectorEnabled) {
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.meteorDetectorEnabled) {
             meteorFinder = initItem(new HyxcateToolMeteorDetector(), "meteor_detector");
         }
 
-        if (HyxcateConfig.MASTER_SWITCHES.meteorGearEnabled) {
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.meteorGearEnabled) {
             meteoritePickaxe = initItem(new HyxcateItemPickaxe(meteoriteToolMaterial, 1.2D, 1, 0.0D, EnumRarity.RARE), "meteorite_pickaxe");
             meteoriteAxe = initItem(new HyxcateItemAxe(meteoriteToolMaterial, 10.0F, 1.1F, 1, 0.0D, EnumRarity.RARE), "meteorite_axe");
             meteoriteShovel = initItem(new HyxcateItemShovel(meteoriteToolMaterial, 1.0D, 1, 0.0D, EnumRarity.RARE), "meteorite_shovel");
@@ -167,11 +167,11 @@ public class HyxcateItems {
             tektiteBow = initItem(new HyxcateItemBow(2500, 1.35F, 1.5F, 0.3F, 0.5F, EnumRarity.EPIC, Ingredient.fromStacks(new ItemStack(tektiteGemCluster))), "tektite_bow");
         }
 
-        if (HyxcateConfig.MASTER_SWITCHES.celestialWarhammerEnabled) {
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.celestialWarhammerEnabled) {
             celestialWarhammer = initItem(new HyxcateToolCelestialWarhammer(celestialWarhammerToolMaterial, 0.8D, 0, 0.0D, EnumRarity.EPIC), "celestial_warhammer");
         }
 
-        if (HyxcateConfig.MASTER_SWITCHES.beamSwordsEnabled) {
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.beamSwordsEnabled) {
             fallenStarBeamSword = initItem(new HyxcateToolBeamSword(beamSwordToolMaterial, 1.4D, 0, 0.0D, EnumRarity.EPIC), "fallen_star_beam_sword");
             meteoriteBeamSword = initItem(new HyxcateToolBeamSword(beamSwordToolMaterial, 1.4D, 0, 0.0D, EnumRarity.EPIC), "meteorite_beam_sword");
             frezariteBeamSword = initItem(new HyxcateToolBeamSword(beamSwordToolMaterial, 1.4D, 0, 0.0D, EnumRarity.EPIC), "frezarite_beam_sword");

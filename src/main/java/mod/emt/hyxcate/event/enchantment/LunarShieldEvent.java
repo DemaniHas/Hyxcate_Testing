@@ -1,7 +1,7 @@
 package mod.emt.hyxcate.event.enchantment;
 
 import com.expandedevents.api.event.ItemAttributeModifierEvent;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import mod.emt.hyxcate.init.HyxcateAttributes;
 import mod.emt.hyxcate.init.HyxcateEnchantments;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -22,7 +22,7 @@ public class LunarShieldEvent {
         ItemStack stack = event.getItemStack();
 
         lunarShieldLevel = EnchantmentHelper.getEnchantmentLevel(HyxcateEnchantments.lunarShield, stack);
-        double lunarShieldBonus = HyxcateConfig.GENERAL.lunarShieldWardBase + (HyxcateConfig.GENERAL.lunarShieldWardSubsequent * lunarShieldLevel);
+        double lunarShieldBonus = HyxcateGeneralConfig.GENERAL.lunarShieldWardBase + (HyxcateGeneralConfig.GENERAL.lunarShieldWardSubsequent * lunarShieldLevel);
 
         if (lunarShieldLevel > 0 && stack.getItem() instanceof ItemArmor && event.getSlotType() == ((ItemArmor) stack.getItem()).armorType) {
             UUID lunarWardArmorSlotID = HyxcateAttributes.LUNAR_WARD_ARMOR_ID.get(event.getSlotType());

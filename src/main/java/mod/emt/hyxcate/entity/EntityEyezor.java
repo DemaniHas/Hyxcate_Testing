@@ -1,8 +1,8 @@
 package mod.emt.hyxcate.entity;
 
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
-import mod.emt.hyxcate.config.HyxcateConfig;
 import mod.emt.hyxcate.celestialevent.lunar.LunarEventStarShower;
+import mod.emt.hyxcate.config.HyxcateEntitiesConfig;
 import mod.emt.hyxcate.init.HyxcateLootTables;
 import mod.emt.hyxcate.init.HyxcateSoundEvents;
 import mod.emt.hyxcate.util.ParticleUtil;
@@ -121,7 +121,7 @@ public class EntityEyezor extends EntityZombie {
         double d1 = target.posX + target.motionX - this.posX;
         double d2 = d0 - this.posY;
         double d3 = target.posZ + target.motionZ - this.posZ;
-        int laserColor = HyxcateConfig.ENTITIES.EYEZOR.laserColor;
+        int laserColor = HyxcateEntitiesConfig.EYEZOR.laserColor;
         EntityLaser laser = new EntityLaser(this.world, this, 6.0F, laserColor);
         for (int i = 0; i < 10; ++i) {
             float r = (float) (laserColor >> 16 & 255) / 255.0F;

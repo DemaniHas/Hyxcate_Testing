@@ -5,7 +5,7 @@ import mod.emt.hyxcate.api.celestialevent.HyxcateLunarEvent;
 import mod.emt.hyxcate.api.celestialevent.HyxcateSolarEvent;
 import mod.emt.hyxcate.compat.astralsorcery.AstralSorcery;
 import mod.emt.hyxcate.compat.gamestages.GameStages;
-import mod.emt.hyxcate.config.HyxcateConfig;
+import mod.emt.hyxcate.config.HyxcateGeneralConfig;
 import mod.emt.hyxcate.config.HyxcateData;
 import mod.emt.hyxcate.config.HyxcateMeteorsConfig;
 import mod.emt.hyxcate.init.HyxcateRegistry;
@@ -72,10 +72,10 @@ public class CapabilityCelestialEvent implements ICapabilityProvider, INBTSerial
     }
 
     public void update() {
-        if (HyxcateConfig.MASTER_SWITCHES.meteorEventsEnabled) updateMeteors();
-        if (HyxcateConfig.MASTER_SWITCHES.lunarEventsEnabled && GameStages.checkGameStageLunarEvents(this.world))
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.meteorEventsEnabled) updateMeteors();
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.lunarEventsEnabled && GameStages.checkGameStageLunarEvents(this.world))
             updateLunarEvents();
-        if (HyxcateConfig.MASTER_SWITCHES.solarEventsEnabled && GameStages.checkGameStageSolarEvents(this.world))
+        if (HyxcateGeneralConfig.MASTER_SWITCHES.solarEventsEnabled && GameStages.checkGameStageSolarEvents(this.world))
             updateSolarEvents();
     }
 
