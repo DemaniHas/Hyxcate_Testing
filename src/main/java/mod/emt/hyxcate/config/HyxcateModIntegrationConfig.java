@@ -13,6 +13,10 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
         name = Hyxcate.ID + "/" + Hyxcate.NAME + " - Mod Integration"
 )
 public class HyxcateModIntegrationConfig {
+    @Config.LangKey("config.hyxcate.peaceful_surface")
+    @Config.Comment("Peaceful Surface settings")
+    public static final PeacefulSurface PEACEFUL_SURFACE = new PeacefulSurface();
+
     @Config.LangKey("config.hyxcate.simple_difficulty")
     @Config.Comment("SimpleDifficulty settings")
     public static final SimpleDifficulty SIMPLE_DIFFICULTY = new SimpleDifficulty();
@@ -29,13 +33,26 @@ public class HyxcateModIntegrationConfig {
     @Config.Comment("Enables Tinkers' Construct integration")
     public static boolean tinkersConstructIntegration = true;
 
-    @Config.Name("Peaceful Surface Integration")
-    @Config.Comment({"Enables Peaceful Surface integration", "Mobs will spawn on the surface during events when enabled"})
-    public static boolean peacefulSurfaceIntegration = true;
-
     @Config.Name("Game Stages Integration")
     @Config.Comment({"Enables Game Stages integration", "See wiki for details: https://github.com/Elite-Modding-Team/Hyxcate/wiki/Game-Stages"})
     public static boolean gameStagesIntegration = false;
+
+    public static class PeacefulSurface {
+        @Config.Name("Enable Peaceful Surface Integration")
+        @Config.Comment({"Enables Peaceful Surface integration", "Mobs will spawn on the surface during events when enabled"})
+        public boolean enablePeacefulSurface = true;
+
+        @Config.Name("Peaceful Surface Events")
+        @Config.Comment("List of active event IDs that prevent Peaceful Surface from cancelling spawns")
+        public String[] peacefulSurfaceEvents = new String[]{
+                "blood_moon",
+                "blue_moon",
+                "full_moon",
+                "grim_eclipse",
+                "red_giant",
+                "star_shower"
+        };
+    }
 
     public static class SimpleDifficulty {
         @Config.Name("Enable SimpleDifficulty Integration")
