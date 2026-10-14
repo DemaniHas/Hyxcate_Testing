@@ -14,6 +14,8 @@ This is a massive update that overhauls the entire mod. The mod id has been chan
 - Added a new growth animation to the sun when affected by events like Red Giant
 - Added the ability to adjust the sun size for all solar events (API)
 - Added an icon for the Deep Freeze effect
+- Added new vignette screen effects to Hyxcate potion effects
+- Added new vignette screen effect to the Red Giant event
 - Added fr_fr.lang (courtesy of Demani)
 - Added ru_ru.lang (courtesy of GitNell)
 - Added uk_ua.lang (courtesy of GitNell)
@@ -33,7 +35,6 @@ This is a massive update that overhauls the entire mod. The mod id has been chan
 - Tweaked Blood Moon, Blue Moon, Grim Eclipse, and Star Shower sky colors
 - Slightly adjusted Alien Kitty textures to be less noisy
 - Hostile mobs will now burn under the Red Giant again (another upcoming solar event will still protect hostile mobs from burning)
-- Added new vignette screen effects to Hyxcate potion effects
 - Disabled potion particles from Hyxcate potion effects
 - Various parts of the event transition times can now be configured
 - Event fog color can now be configured rather than using the same color as the sky

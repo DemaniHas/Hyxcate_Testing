@@ -1,5 +1,7 @@
 package mod.emt.hyxcate.event.client;
 
+import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
+import mod.emt.hyxcate.celestialevent.solar.SolarEventRedGiant;
 import mod.emt.hyxcate.init.HyxcatePotions;
 import mod.emt.hyxcate.util.VignetteUtil;
 import mod.emt.hyxcate.util.helpers.VignetteHelper;
@@ -17,11 +19,13 @@ public class VignetteEvent {
     private static final VignetteUtil DEEP_FREEZE = new VignetteUtil(2.0F, 2.0F, 0.5F);
     private static final VignetteUtil INFERNO = new VignetteUtil(0.3F, 0.5F, 0.45F);
     private static final VignetteUtil PARALYSIS = new VignetteUtil(0.08F, 0.30F, 0.40F);
+    private static final VignetteUtil RED_GIANT = new VignetteUtil(5.0F, 5.0F, 0.2F);
 
     private boolean hadAstralErosion = false;
     private boolean hadDeepFreeze = false;
     private boolean hadInferno = false;
     private boolean hadParalysis = false;
+    private boolean experiencedRedGiant = false;
 
     @SubscribeEvent
     public void onClientTick(TickEvent.ClientTickEvent event) {
@@ -39,11 +43,13 @@ public class VignetteEvent {
         updateDeepFreeze(mc);
         updateInferno(mc);
         updateParalysis(mc);
+        updateRedGiant(mc);
 
         ASTRAL_EROSION.update();
         DEEP_FREEZE.update();
         INFERNO.update();
         PARALYSIS.update();
+        RED_GIANT.update();
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
@@ -56,6 +62,7 @@ public class VignetteEvent {
         renderDeepFreeze(event);
         renderInferno(event);
         renderParalysis(event);
+        renderRedGiant(event);
     }
 
     private void renderAstralErosion(RenderGameOverlayEvent.Pre event) {
@@ -90,6 +97,14 @@ public class VignetteEvent {
         VignetteHelper.render(event.getResolution(), 1.0F, 0.85F, 0.35F, alpha);
     }
 
+    private void renderRedGiant(RenderGameOverlayEvent.Pre event) {
+        float alpha = RED_GIANT.getAlpha();
+        if (alpha <= 0.0F) {
+            return;
+        }
+        VignetteHelper.render(event.getResolution(), 1.0F, 0.0F, 0.0F, alpha);
+    }
+
     private void updateAstralErosion(Minecraft mc) {
         boolean active = mc.player.isPotionActive(HyxcatePotions.ASTRAL_EROSION);
         if (active != hadAstralErosion) {
@@ -119,6 +134,16 @@ public class VignetteEvent {
         if (active != hadParalysis) {
             hadParalysis = active;
             PARALYSIS.setFlickering(active);
+        }
+    }
+
+    private void updateRedGiant(Minecraft mc) {
+        CapabilityCelestialEvent celestialEvent = CapabilityCelestialEvent.get(mc.world);
+        boolean underSky = mc.world.canSeeSky(mc.player.getPosition());
+        boolean active = celestialEvent != null && celestialEvent.currentSolarEvent instanceof SolarEventRedGiant && underSky;
+        if (active != experiencedRedGiant) {
+            experiencedRedGiant = active;
+            RED_GIANT.setActive(active);
         }
     }
 }
