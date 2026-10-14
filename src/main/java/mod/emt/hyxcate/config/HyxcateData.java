@@ -2,6 +2,10 @@ package mod.emt.hyxcate.config;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
@@ -100,6 +104,91 @@ public class HyxcateData {
         readEntitiesFromConfigAsMap(HyxcateLunarEventsConfig.STAR_SHOWER.spawnsReplacement, REPLACEMENT_SPAWNS_STAR_SHOWER);
         readEntitiesFromConfigAsMap(HyxcateSolarEventsConfig.GRIM_ECLIPSE.spawnsReplacement, REPLACEMENT_SPAWNS_GRIM_ECLIPSE);
         readEntitiesFromConfigAsMap(HyxcateSolarEventsConfig.RED_GIANT.spawnsReplacement, REPLACEMENT_SPAWNS_RED_GIANT);
+    }
+
+    public static void applyPotionEffects(EntityLivingBase entity, String[] configuredEffects, double chance) {
+        if (entity == null || configuredEffects == null || configuredEffects.length == 0 || chance <= 0.0) {
+            return;
+        }
+
+        chance = Math.min(chance, 100.0);
+        if (entity.world.rand.nextDouble() * 100.0 >= chance) {
+            return;
+        }
+
+        List<PotionEffect> validEffects = new ArrayList<>();
+        for (String entry : configuredEffects) {
+            if (entry == null || entry.trim().isEmpty()) {
+                continue;
+            }
+
+            String[] parts = entry.split(";", -1);
+            if (parts.length < 1 || parts.length > 3) {
+                continue;
+            }
+
+            try {
+                ResourceLocation id = new ResourceLocation(parts[0].trim());
+                Potion potion = Potion.REGISTRY.getObject(id);
+
+                if (potion == null) {
+                    continue;
+                }
+
+                int duration = Integer.MAX_VALUE;
+                int amplifier = 0;
+
+                if (parts.length >= 2 && !parts[1].trim().isEmpty()) {
+                    String durationString = parts[1].trim();
+                    duration = durationString.equals("*") ? Integer.MAX_VALUE : Integer.parseInt(durationString);
+                }
+
+                if (parts.length >= 3 && !parts[2].trim().isEmpty()) {
+                    amplifier = Integer.parseInt(parts[2].trim());
+                }
+
+                if (duration <= 0 || amplifier < 0) {
+                    continue;
+                }
+                validEffects.add(new PotionEffect(potion, duration, amplifier));
+            } catch (IllegalArgumentException ignored) {
+            }
+        }
+
+        if (!validEffects.isEmpty()) {
+            PotionEffect selected = validEffects.get(entity.world.rand.nextInt(validEffects.size()));
+            entity.addPotionEffect(selected);
+        }
+    }
+
+    public static boolean isPotionEffectEntityAllowed(EntityLivingBase entity, String[] entityList, HyxcateLunarEventsConfig.EnumLists mode) {
+        if (entity == null) {
+            return false;
+        }
+
+        ResourceLocation entityId = EntityList.getKey(entity);
+
+        if (entityId == null) {
+            return false;
+        }
+
+        boolean listed = false;
+
+        if (entityList != null) {
+            for (String entry : entityList) {
+                if (entry == null || entry.trim().isEmpty()) {
+                    continue;
+                }
+                try {
+                    if (new ResourceLocation(entry.trim()).equals(entityId)) {
+                        listed = true;
+                        break;
+                    }
+                } catch (IllegalArgumentException ignored) {
+                }
+            }
+        }
+        return (mode == HyxcateLunarEventsConfig.EnumLists.WHITELIST) == listed;
     }
 
     private static void readBlockStatesFromConfigAsList(String[] array, List<IBlockState> list) {

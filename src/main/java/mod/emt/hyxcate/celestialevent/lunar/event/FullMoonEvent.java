@@ -7,12 +7,8 @@ import mod.emt.hyxcate.config.HyxcateLunarEventsConfig;
 import mod.emt.hyxcate.util.helpers.ConfigHelper;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.IMob;
-import net.minecraft.init.MobEffects;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.fml.common.eventhandler.Event;
@@ -44,25 +40,8 @@ public class FullMoonEvent {
                 ConfigHelper.handleExtraSpawn(entity, "full_moon_spawn", HyxcateData.EXTRA_SPAWNS_FULL_MOON);
             }
             event.setCanceled(ConfigHelper.handleReplacementSpawn(entity, "full_moon_spawn", HyxcateData.REPLACEMENT_SPAWNS_FULL_MOON));
-
-            // Set random effect
-            if (HyxcateLunarEventsConfig.FULL_MOON.addPotionEffects) {
-                Potion effect = null;
-                int i = entity.world.rand.nextInt(20);
-
-                if (i <= 2) {
-                    effect = MobEffects.SPEED;
-                } else if (i <= 4) {
-                    effect = MobEffects.STRENGTH;
-                } else if (i <= 6) {
-                    effect = MobEffects.REGENERATION;
-                } else if (i <= 7) {
-                    effect = MobEffects.INVISIBILITY;
-                }
-
-                // TODO: Add a configure list of mobs that can and cannot get effects. Maybe we could do this for all events as well
-                if (effect != null && !(entity instanceof EntityCreeper))
-                    entity.addPotionEffect(new PotionEffect(effect, Integer.MAX_VALUE));
+            if (HyxcateLunarEventsConfig.FULL_MOON.mobPotionEffects && HyxcateData.isPotionEffectEntityAllowed(entity, HyxcateLunarEventsConfig.mobPotionEffectsEntityList, HyxcateLunarEventsConfig.mobPotionEffectListMode)) {
+                HyxcateData.applyPotionEffects(entity, HyxcateLunarEventsConfig.FULL_MOON.mobPotionEffectsList, HyxcateLunarEventsConfig.FULL_MOON.mobPotionEffectsChance);
             }
         }
     }

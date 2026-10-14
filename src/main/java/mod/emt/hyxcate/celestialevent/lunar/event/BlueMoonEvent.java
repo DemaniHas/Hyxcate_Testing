@@ -56,6 +56,9 @@ public class BlueMoonEvent {
                 ConfigHelper.handleExtraSpawn(entity, "blue_moon_spawn", HyxcateData.EXTRA_SPAWNS_BLUE_MOON);
             }
             event.setCanceled(ConfigHelper.handleReplacementSpawn(entity, "blue_moon_spawn", HyxcateData.REPLACEMENT_SPAWNS_BLUE_MOON));
+            if (HyxcateLunarEventsConfig.BLUE_MOON.mobPotionEffects && HyxcateData.isPotionEffectEntityAllowed(entity, HyxcateLunarEventsConfig.mobPotionEffectsEntityList, HyxcateLunarEventsConfig.mobPotionEffectListMode)) {
+                HyxcateData.applyPotionEffects(entity, HyxcateLunarEventsConfig.BLUE_MOON.mobPotionEffectsList, HyxcateLunarEventsConfig.BLUE_MOON.mobPotionEffectsChance);
+            }
         }
     }
 }
