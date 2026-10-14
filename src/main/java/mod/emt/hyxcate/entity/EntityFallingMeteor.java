@@ -2,8 +2,8 @@ package mod.emt.hyxcate.entity;
 
 import mod.emt.hyxcate.Hyxcate;
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
-import mod.emt.hyxcate.config.HyxcateConfig;
 import mod.emt.hyxcate.config.HyxcateData;
+import mod.emt.hyxcate.config.HyxcateMeteorsConfig;
 import mod.emt.hyxcate.init.HyxcateBlocks;
 import mod.emt.hyxcate.init.HyxcateSoundEvents;
 import mod.emt.hyxcate.util.ColorUtil;
@@ -226,9 +226,9 @@ public class EntityFallingMeteor extends EntityFallingStar {
                             ((EntityPlayerMP) player).connection.sendPacket(new SPacketSoundEffect(sound, SoundCategory.AMBIENT, player.posX, player.posY, player.posZ, volume, pitch));
                         }
                         // send message
-                        if (HyxcateConfig.METEORS.message && dist > 16 * 16) {
+                        if (HyxcateMeteorsConfig.message && dist > 16 * 16) {
                             ITextComponent text;
-                            if (HyxcateConfig.METEORS.messageVerbose) {
+                            if (HyxcateMeteorsConfig.messageVerbose) {
                                 text = new TextComponentTranslation("info." + Hyxcate.ID + ".meteor_verbose");
                                 text.appendText(" " + this.getPosition().getX() + ", " + this.getPosition().getY() + ", " + this.getPosition().getZ() + "!");
                             } else {

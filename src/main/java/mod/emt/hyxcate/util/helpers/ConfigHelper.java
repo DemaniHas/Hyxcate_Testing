@@ -2,9 +2,9 @@ package mod.emt.hyxcate.util.helpers;
 
 import mod.emt.hyxcate.Hyxcate;
 import mod.emt.hyxcate.capability.CapabilityCelestialEvent;
-import mod.emt.hyxcate.config.HyxcateConfig;
 import mod.emt.hyxcate.config.HyxcateData;
 import mod.emt.hyxcate.celestialevent.lunar.LunarEventStarShower;
+import mod.emt.hyxcate.config.HyxcateMeteorsConfig;
 import mod.emt.hyxcate.util.WorldUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -102,16 +102,16 @@ public class ConfigHelper {
 
     public static double getMeteorChance(World world, CapabilityCelestialEvent data) {
         DimensionType dim = world.provider.getDimensionType();
-        if (dim == DimensionType.THE_END) return HyxcateConfig.METEORS.chanceEndM;
+        if (dim == DimensionType.THE_END) return HyxcateMeteorsConfig.chanceEndM;
         if (!HyxcateData.ALLOWED_DIMENSIONS_LUNAR.contains(dim.getId())) return 0;
-        boolean visitedGate = data.visitedDimensions.contains(DimensionType.getById(HyxcateConfig.METEORS.gateDimension).getName());
+        boolean visitedGate = data.visitedDimensions.contains(DimensionType.getById(HyxcateMeteorsConfig.gateDimension).getName());
         if (!WorldUtil.isDaytime(world)) {
             if (data.currentLunarEvent instanceof LunarEventStarShower) {
-                return HyxcateConfig.METEORS.chanceStarShowerM;
+                return HyxcateMeteorsConfig.chanceStarShowerM;
             } else {
-                return visitedGate ? HyxcateConfig.METEORS.chanceAfterGateNightM : HyxcateConfig.METEORS.chanceNightM;
+                return visitedGate ? HyxcateMeteorsConfig.chanceAfterGateNightM : HyxcateMeteorsConfig.chanceNightM;
             }
         }
-        return visitedGate ? HyxcateConfig.METEORS.chanceAfterGateM : HyxcateConfig.METEORS.chanceM;
+        return visitedGate ? HyxcateMeteorsConfig.chanceAfterGateM : HyxcateMeteorsConfig.chanceM;
     }
 }

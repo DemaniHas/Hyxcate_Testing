@@ -61,24 +61,24 @@ public class HyxcateData {
         ALLOWED_DIMENSIONS_SOLAR.addAll(Arrays.asList(HyxcateSolarEventsConfig.allowedDimensions));
 
         ALLOWED_METEOR_SIZES.clear();
-        ALLOWED_METEOR_SIZES.addAll(Arrays.asList(HyxcateConfig.METEORS.meteorSizes));
+        ALLOWED_METEOR_SIZES.addAll(Arrays.asList(HyxcateMeteorsConfig.meteorSizes));
         ALLOWED_METEOR_TYPES.clear();
-        ALLOWED_METEOR_TYPES.addAll(Arrays.asList(HyxcateConfig.METEORS.meteorTypes));
+        ALLOWED_METEOR_TYPES.addAll(Arrays.asList(HyxcateMeteorsConfig.meteorTypes));
 
-        readBlockStatesFromConfigAsList(HyxcateConfig.METEORS.meteorBlocksMeteorite, METEOR_BLOCKS_METEORITE);
-        readBlockStatesFromConfigAsList(HyxcateConfig.METEORS.meteorBlocksFrezarite, METEOR_BLOCKS_FREZARITE);
-        readBlockStatesFromConfigAsList(HyxcateConfig.METEORS.meteorBlocksKreknorite, METEOR_BLOCKS_KREKNORITE);
-        readBlockStatesFromConfigAsList(HyxcateConfig.METEORS.meteorBlocksUnknown, METEOR_BLOCKS_UNKNOWN);
+        readBlockStatesFromConfigAsList(HyxcateMeteorsConfig.meteorBlocksMeteorite, METEOR_BLOCKS_METEORITE);
+        readBlockStatesFromConfigAsList(HyxcateMeteorsConfig.meteorBlocksFrezarite, METEOR_BLOCKS_FREZARITE);
+        readBlockStatesFromConfigAsList(HyxcateMeteorsConfig.meteorBlocksKreknorite, METEOR_BLOCKS_KREKNORITE);
+        readBlockStatesFromConfigAsList(HyxcateMeteorsConfig.meteorBlocksUnknown, METEOR_BLOCKS_UNKNOWN);
 
-        readBlockStatesFromConfigAsList(HyxcateConfig.METEORS.fillerBlocksMeteorite, FILLER_BLOCKS_METEORITE);
-        readBlockStatesFromConfigAsList(HyxcateConfig.METEORS.fillerBlocksFrezarite, FILLER_BLOCKS_FREZARITE);
-        readBlockStatesFromConfigAsList(HyxcateConfig.METEORS.fillerBlocksKreknorite, FILLER_BLOCKS_KREKNORITE);
-        readBlockStatesFromConfigAsList(HyxcateConfig.METEORS.fillerBlocksUnknown, FILLER_BLOCKS_UNKNOWN);
+        readBlockStatesFromConfigAsList(HyxcateMeteorsConfig.fillerBlocksMeteorite, FILLER_BLOCKS_METEORITE);
+        readBlockStatesFromConfigAsList(HyxcateMeteorsConfig.fillerBlocksFrezarite, FILLER_BLOCKS_FREZARITE);
+        readBlockStatesFromConfigAsList(HyxcateMeteorsConfig.fillerBlocksKreknorite, FILLER_BLOCKS_KREKNORITE);
+        readBlockStatesFromConfigAsList(HyxcateMeteorsConfig.fillerBlocksUnknown, FILLER_BLOCKS_UNKNOWN);
 
-        readBlockStatesFromConfigAsList(HyxcateConfig.METEORS.liquidBlocksMeteorite, LIQUID_BLOCKS_METEORITE);
-        readBlockStatesFromConfigAsList(HyxcateConfig.METEORS.liquidBlocksFrezarite, LIQUID_BLOCKS_FREZARITE);
-        readBlockStatesFromConfigAsList(HyxcateConfig.METEORS.liquidBlocksKreknorite, LIQUID_BLOCKS_KREKNORITE);
-        readBlockStatesFromConfigAsList(HyxcateConfig.METEORS.liquidBlocksUnknown, LIQUID_BLOCKS_UNKNOWN);
+        readBlockStatesFromConfigAsList(HyxcateMeteorsConfig.liquidBlocksMeteorite, LIQUID_BLOCKS_METEORITE);
+        readBlockStatesFromConfigAsList(HyxcateMeteorsConfig.liquidBlocksFrezarite, LIQUID_BLOCKS_FREZARITE);
+        readBlockStatesFromConfigAsList(HyxcateMeteorsConfig.liquidBlocksKreknorite, LIQUID_BLOCKS_KREKNORITE);
+        readBlockStatesFromConfigAsList(HyxcateMeteorsConfig.liquidBlocksUnknown, LIQUID_BLOCKS_UNKNOWN);
 
         readEntitiesFromConfigAsList(HyxcateLunarEventsConfig.BLOOD_MOON.spawnsExclusive, EXCLUSIVE_SPAWNS_BLOOD_MOON);
         readEntitiesFromConfigAsList(HyxcateLunarEventsConfig.BLUE_MOON.spawnsExclusive, EXCLUSIVE_SPAWNS_BLUE_MOON);
